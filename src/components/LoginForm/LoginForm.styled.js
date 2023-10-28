@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Image from 'next/image';
 
 export const Title = styled.h2`
   text-transform: uppercase;
@@ -21,8 +22,9 @@ export const Form = styled.form`
   gap: ${({ theme }) => theme.primaryGap}px;
 `;
 
-export const Image = styled.img`
+export const Avatar = styled(Image)`
   width: 150px;
+  height: auto;
   align-self: center;
 `;
 

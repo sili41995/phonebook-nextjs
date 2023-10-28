@@ -4,25 +4,25 @@ import {
   AiFillLock,
   AiOutlineEye,
   AiOutlineEyeInvisible,
-  AiTwotoneMail,
 } from 'react-icons/ai';
-// import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-// import 'react-toastify/dist/ReactToastify.css';
-import { Form, Button, Message, Title, Image } from './LoginForm.styled';
-// import defaultAvatar from '../default-signin-avatar.png';
-// import { toasts } from 'utils';
+import { Form, Button, Message, Title, Avatar } from './LoginForm.styled';
 import AuthFormMessage from '@/components/AuthFormMessage';
 import Input from '@/components/Input';
 import { formType, iconBtnType, pagesPath } from '@/constants';
-// import { selectIsLoading } from 'redux/auth/selectors';
-// import { loginUser } from 'redux/auth/operations';
+import { MdEmail } from 'react-icons/md';
+import { useDispatch, useSelector } from 'react-redux';
+import 'react-toastify/dist/ReactToastify.css';
+import defaultAvatar from '@/images/default-signin-avatar.png';
+import { toasts } from '@/utils';
+import { selectIsLoading } from '@/redux/auth/selectors';
+import { loginUser } from '@/redux/auth/operations';
 
 const LoginForm = () => {
   const [isShowPassword, setIsShowPassword] = useState(false);
-  // const isLoading = useSelector(selectIsLoading);
-  // const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
+  const dispatch = useDispatch();
   const {
     register,
     formState: { errors },
@@ -30,6 +30,7 @@ const LoginForm = () => {
     watch,
   } = useForm();
   const watchPassword = watch('password');
+  const inputType = isShowPassword ? 'text' : 'password';
   const pageLink = `/${pagesPath.registerPath}`;
 
   const toggleIsShowPassword = () => {
@@ -49,7 +50,7 @@ const LoginForm = () => {
     <>
       <Title>log in</Title>
       <Message>Welcome to Phonebook!</Message>
-      {/* <Image src={defaultAvatar} alt='user avatar' /> */}
+      <Avatar src={defaultAvatar} alt='user avatar' />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Input
           settings={{ ...register('email', { required: true }) }}
@@ -58,7 +59,7 @@ const LoginForm = () => {
           // inputType={formType.authForm}
           autoFocus
           inputWrap
-          fieldIcon={<AiTwotoneMail />}
+          fieldIcon={<MdEmail />}
           // fieldIconSize={20}
         />
         {errors.email && toasts.errorToast('Email is required')}
@@ -66,7 +67,7 @@ const LoginForm = () => {
           settings={{
             ...register('password', { required: true, minLength: 7 }),
           }}
-          type={isShowPassword ? 'text' : 'password'}
+          type={inputType}
           placeholder='Password'
           // inputType={formType.authForm}
           btnType={watchPassword && iconBtnType.toggleShowPassword}
@@ -88,10 +89,7 @@ const LoginForm = () => {
           pageLink={pageLink}
           message={"if you don't have an account yet"}
         />
-        <Button
-          // disabled={isLoading}
-          type='submit'
-        >
+        <Button disabled={isLoading} type='submit'>
           Log in
         </Button>
       </Form>

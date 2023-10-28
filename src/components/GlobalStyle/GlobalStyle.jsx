@@ -1,5 +1,4 @@
 import 'modern-normalize';
-// import { juaRegular, interMedium, interSemiBold } from 'fonts';
 
 import { createGlobalStyle } from 'styled-components';
 

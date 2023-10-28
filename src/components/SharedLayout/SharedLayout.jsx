@@ -1,15 +1,26 @@
 'use client';
 
+import { useDispatch } from 'react-redux';
 // import { Suspense } from 'react';
 // import { Outlet, useLocation } from 'react-router-dom';
 import { Container, Header, Main, Section } from './SharedLayout.styled';
 import Navigation from '@/components/Navigation';
-// import { setAuthPageBackgroundColor, isContactsPage } from 'utils';
+import { refreshUser } from '@/redux/auth/operations';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
+import { setAuthPageBackgroundColor, isContactsPage } from '@/utils';
 
 const SharedLayout = ({ children }) => {
-  // const { pathname } = useLocation();
+  const dispatch = useDispatch();
+  const pathname = usePathname();
+  // const isRefreshing = useSelector(selectIsRefreshing);
 
-  // setAuthPageBackgroundColor(pathname);
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  setAuthPageBackgroundColor(pathname);
 
   return (
     <>
@@ -20,9 +31,7 @@ const SharedLayout = ({ children }) => {
       </Header>
       <Main>
         <Section>
-          <Container
-          // isContactsPage={isContactsPage(pathname)}
-          >
+          <Container isContactsPage={isContactsPage(pathname)}>
             {children}
           </Container>
         </Section>

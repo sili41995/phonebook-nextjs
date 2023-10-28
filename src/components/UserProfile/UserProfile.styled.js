@@ -1,11 +1,13 @@
+import Image from 'next/image';
 import styled from 'styled-components';
 
 export const UserProfileContainer = styled.div`
   flex-shrink: 0;
 `;
 
-export const Image = styled.img`
+export const Avatar = styled(Image)`
   width: 150px;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
 `;
