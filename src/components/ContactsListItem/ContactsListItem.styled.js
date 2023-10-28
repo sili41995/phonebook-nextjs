@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styled from 'styled-components';
 
 export const Item = styled.li`
@@ -20,8 +21,9 @@ export const Item = styled.li`
   }
 `;
 
-export const Image = styled.img`
+export const Avatar = styled(Image)`
   width: 70px;
+  height: auto;
 `;
 
 export const ContactInfo = styled.div`

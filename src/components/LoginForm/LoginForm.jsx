@@ -38,7 +38,6 @@ const LoginForm = () => {
   };
 
   const onSubmit = (credentials) => {
-    console.log(credentials);
     dispatch(loginUser(credentials))
       .unwrap()
       .then(() => {

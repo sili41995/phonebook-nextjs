@@ -4,7 +4,7 @@ const pagesPath = {
   aboutPath: 'about',
   registerPath: 'register',
   loginPath: 'login',
-  contactDetailsPath: 'contact-details',
+  contactDetailsPath: 'contacts/contact-details',
   addNewContactPath: 'contacts/new-contact',
   contactPath: 'contact',
   newContactPath: 'new-contact',

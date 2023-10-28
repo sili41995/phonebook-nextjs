@@ -1,7 +1,13 @@
+import AddContactForm from '@/components/AddContactForm';
+import ContactModalForm from '@/components/ContactModalForm';
 import React from 'react';
 
-const page = () => {
-  return <div>page</div>;
+const AddContact = () => {
+  return (
+    <ContactModalForm>
+      <AddContactForm />
+    </ContactModalForm>
+  );
 };
 
-export default page;
+export default AddContact;

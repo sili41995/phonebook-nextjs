@@ -7,8 +7,7 @@ import { Container, Header, Main, Section } from './SharedLayout.styled';
 import Navigation from '@/components/Navigation';
 import { refreshUser } from '@/redux/auth/operations';
 import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { setAuthPageBackgroundColor, isContactsPage } from '@/utils';
 
 const SharedLayout = ({ children }) => {
