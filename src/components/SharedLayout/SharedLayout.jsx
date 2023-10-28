@@ -4,7 +4,6 @@
 // import { Outlet, useLocation } from 'react-router-dom';
 import { Container, Header, Main, Section } from './SharedLayout.styled';
 import Navigation from '@/components/Navigation';
-// import Loader from 'components/Loader';
 // import { setAuthPageBackgroundColor, isContactsPage } from 'utils';
 
 const SharedLayout = ({ children }) => {
@@ -31,4 +30,5 @@ const SharedLayout = ({ children }) => {
     </>
   );
 };
+
 export default SharedLayout;

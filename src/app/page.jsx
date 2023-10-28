@@ -1,7 +1,12 @@
-'use client';
+import AuthForm from '@/components/AuthForm';
+import LoginForm from '@/components/LoginForm';
 
 const Home = () => {
-  return;
+  return (
+    <AuthForm>
+      <LoginForm />
+    </AuthForm>
+  );
 };
 
 export default Home;

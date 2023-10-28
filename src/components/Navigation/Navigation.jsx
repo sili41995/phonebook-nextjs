@@ -1,8 +1,10 @@
 'use client';
 
+import Link from 'next/link';
 // import { useSelector } from 'react-redux';
 // import { NavLink } from 'react-router-dom';
 import { NavContainer, List, ListItem } from './Navigation.styled';
+import { pagesPath } from '@/constants';
 // import PrivateLinks from 'components/PrivateLinks';
 // import PublicLinks from 'components/PublicLinks';
 // import { pagesPath } from 'constants';
@@ -10,16 +12,18 @@ import { NavContainer, List, ListItem } from './Navigation.styled';
 
 const Navigation = () => {
   // const isLoggedIn = useSelector(selectIsLoggedIn);
-  // const contactsPagePath = `/${pagesPath.contactsPath}`;
-  // const aboutPagePath = `/${pagesPath.aboutPath}`;
+  const contactsPagePath = `/${pagesPath.contactsPath}`;
+  const aboutPagePath = `/${pagesPath.aboutPath}`;
 
   return (
     <NavContainer>
       <List>
         <ListItem>
-          {/* <NavLink to={contactsPagePath}>Contacts</NavLink> */}
+          <Link href={contactsPagePath}>Contacts</Link>
         </ListItem>
-        <ListItem>{/* <NavLink to={aboutPagePath}>About</NavLink> */}</ListItem>
+        <ListItem>
+          <Link href={aboutPagePath}>About</Link>
+        </ListItem>
       </List>
       {/* {isLoggedIn ? <PrivateLinks /> : <PublicLinks />} */}
     </NavContainer>
