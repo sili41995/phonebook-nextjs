@@ -15,12 +15,16 @@ import { pagesPath, iconBtnType } from '@/constants';
 import { selectContacts } from '@/redux/contacts/selectors';
 import { logoutUser } from '@/redux/auth/operations';
 import Filter from '@/components/Filter';
+import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 const PrivateLinks = () => {
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
-  // const location = useLocation();
+  const pathname = usePathname();
   const path = `/${pagesPath.addNewContactPath}`;
+  const isShowFilter = isContactsPage(pathname) && !!contacts.length;
+  const router = useRouter();
 
   const onLogoutBtnClick = ({ currentTarget }) => {
     makeBlur(currentTarget);
@@ -28,17 +32,14 @@ const PrivateLinks = () => {
       .unwrap()
       .then(() => {
         toasts.successToast('Goodbye!');
-        // navigate(pagesPath.homePath);
+        router.push(pagesPath.homePath);
       });
   };
 
   return (
     <LinkContainer>
-      {isContactsPage(location.pathname) && !!contacts.length && <Filter />}
-      <Link
-        href={path}
-        // state={{ from: location }}
-      >
+      {isShowFilter && <Filter />}
+      <Link href={path}>
         <IconContainer>
           <GrAddCircle />
         </IconContainer>
