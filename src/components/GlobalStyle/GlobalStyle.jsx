@@ -1,5 +1,6 @@
-import 'modern-normalize';
+'use client';
 
+import 'modern-normalize';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`

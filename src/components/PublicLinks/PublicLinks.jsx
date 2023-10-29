@@ -1,4 +1,5 @@
-// import { NavLink } from 'react-router-dom';
+'use client';
+
 import Link from 'next/link';
 import { List, ListItem } from './PublicLinks.styled';
 import { pagesPath } from '@/constants';

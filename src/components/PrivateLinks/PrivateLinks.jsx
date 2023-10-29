@@ -1,3 +1,5 @@
+'use client';
+
 import { SlLogout } from 'react-icons/sl';
 // import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,6 +14,7 @@ import { makeBlur, toasts, isContactsPage } from '@/utils';
 import { pagesPath, iconBtnType } from '@/constants';
 import { selectContacts } from '@/redux/contacts/selectors';
 import { logoutUser } from '@/redux/auth/operations';
+import Filter from '@/components/Filter';
 
 const PrivateLinks = () => {
   const contacts = useSelector(selectContacts);
@@ -31,7 +34,7 @@ const PrivateLinks = () => {
 
   return (
     <LinkContainer>
-      {/* {isContactsPage(location.pathname) && !!contacts.length && <Filter />} */}
+      {isContactsPage(location.pathname) && !!contacts.length && <Filter />}
       <Link
         href={path}
         // state={{ from: location }}

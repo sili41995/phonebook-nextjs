@@ -1,3 +1,5 @@
+'use client';
+
 import { useTargetContact } from '@/hooks';
 import { getAvatar, getContactInfo } from '@/utils';
 import {

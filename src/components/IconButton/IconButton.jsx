@@ -1,3 +1,5 @@
+'use client';
+
 import { Button } from './IconButton.styled';
 
 const IconButton = ({ children, type = 'button', onBtnClick, ...props }) => (

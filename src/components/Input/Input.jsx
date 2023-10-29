@@ -1,3 +1,5 @@
+'use client';
+
 import { forwardRef } from 'react';
 import { Container, StyledInput } from './Input.styled';
 import IconButton from '@/components/IconButton';

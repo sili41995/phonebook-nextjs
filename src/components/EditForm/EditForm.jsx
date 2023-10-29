@@ -1,3 +1,5 @@
+'use client';
+
 import { HiPhone } from 'react-icons/hi';
 import { FaUser } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
