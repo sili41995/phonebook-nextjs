@@ -1,3 +1,5 @@
+'use client';
+
 import { HiOutlinePhone } from 'react-icons/hi';
 import { IoMdMail } from 'react-icons/io';
 import { RiChat1Line } from 'react-icons/ri';
@@ -8,10 +10,10 @@ import {
   Field,
   InfoWrap,
 } from './ContactData.styled';
-import ActionLink from 'components/ActionLink';
-import { getContactInfo, getPhoneNumber } from 'utils';
-import { useTargetContact } from 'hooks';
-import { iconBtnType } from 'constants';
+import ActionLink from '@/components/ActionLink';
+import { getContactInfo, getPhoneNumber } from '@/utils';
+import { useTargetContact } from '@/hooks';
+import { iconBtnType } from '@/constants';
 
 const ContactData = () => {
   const targetContact = useTargetContact();

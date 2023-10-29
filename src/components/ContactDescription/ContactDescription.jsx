@@ -1,6 +1,8 @@
+'use client';
+
 import { Description } from './ContactDescription.styled';
-import { useTargetContact } from 'hooks';
-import { getContactInfo } from 'utils';
+import { useTargetContact } from '@/hooks';
+import { getContactInfo } from '@/utils';
 
 const ContactDescription = () => {
   const targetContact = useTargetContact();

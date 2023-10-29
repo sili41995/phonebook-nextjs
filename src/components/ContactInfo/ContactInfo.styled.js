@@ -1,7 +1,9 @@
+import Image from 'next/image';
 import styled from 'styled-components';
 
-export const Image = styled.img`
+export const Avatar = styled(Image)`
   width: 112px;
+  height: auto;
   margin: 0 auto ${({ theme }) => theme.spacing(2)};
 `;
 

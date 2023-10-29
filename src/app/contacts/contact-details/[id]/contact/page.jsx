@@ -1,7 +1,8 @@
+import ContactData from '@/components/ContactData';
 import React from 'react';
 
 const page = () => {
-  return <div>contactpage</div>;
+  return <ContactData />;
 };
 
 export default page;

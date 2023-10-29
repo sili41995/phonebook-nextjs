@@ -13,13 +13,14 @@ import { useTargetContact } from '@/hooks';
 import { pagesPath, iconBtnType } from '@/constants';
 import { updateContact } from '@/redux/contacts/operations';
 import { selectIsLoading } from '@/redux/contacts/selectors';
+import { useParams } from 'next/navigation';
 
 const EditForm = ({ setEditContact }) => {
-  // const isLoading = useSelector(selectIsLoading);
-  // const dispatch = useDispatch();
-  // const id = useParams()[pagesPath.dynamicParam];
-  // const targetContact = useTargetContact();
-  // const { name, number } = getContactInfo(targetContact);
+  const isLoading = useSelector(selectIsLoading);
+  const dispatch = useDispatch();
+  const id = useParams()[pagesPath.dynamicParam];
+  const targetContact = useTargetContact();
+  const { name, number } = getContactInfo(targetContact);
   const {
     register,
     formState: { errors },

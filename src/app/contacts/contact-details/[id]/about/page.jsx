@@ -1,7 +1,8 @@
+import ContactDescription from '@/components/ContactDescription';
 import React from 'react';
 
 const page = () => {
-  return <div>aboutpage</div>;
+  return <ContactDescription />;
 };
 
 export default page;

@@ -9,20 +9,21 @@ import ContactInfo from '@/components/ContactInfo';
 import EditForm from '@/components/EditForm';
 import ContactModalForm from '@/components/ContactModalForm';
 import IconButton from '@/components/IconButton';
-// import { makeBlur } from 'utils';
+import { makeBlur } from '@/utils';
 import { iconBtnType, pagesPath } from '@/constants';
-// import { useDeleteContact } from 'hooks';
+import { useDeleteContact } from '@/hooks';
 import { selectIsLoading } from '@/redux/contacts/selectors';
+import { useParams } from 'next/navigation';
 
 const ContactDetails = ({ children }) => {
   const [editContact, setEditContact] = useState(false);
   const isLoading = useSelector(selectIsLoading);
-  // const id = useParams()[pagesPath.dynamicParam];
-  // const deleteContact = useDeleteContact();
+  const id = useParams()[pagesPath.dynamicParam];
+  const deleteContact = useDeleteContact();
 
-  // const setEditState = () => {
-  //   setEditContact((editContact) => !editContact);
-  // };
+  const setEditState = () => {
+    setEditContact((editContact) => !editContact);
+  };
 
   const handleEditBtnClick = (e) => {
     setEditState();
