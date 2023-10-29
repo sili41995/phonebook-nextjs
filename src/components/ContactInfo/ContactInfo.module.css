@@ -1,0 +1,61 @@
+.avatar {
+  width: 112px;
+  height: auto;
+  margin: 0 auto calc(var(--spacing) * 2);
+}
+
+.infoWrap {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing) * 2);
+}
+
+.name {
+  color: var(--primaryFontColor);
+  font-family: Jua;
+  font-size: var(--secondaryFontSize);
+  font-weight: var(--otherFontWeight);
+  text-align: center;
+}
+
+.role {
+  color: var(--secondaryFontColor);
+  font-family: Inter;
+  font-size: var(--primaryFontSize);
+  font-weight: var(--primaryFontWeight);
+  text-align: center;
+}
+
+.nav {
+  background-color: var(--lightgreyColor);
+  padding: var(--spacing);
+  border-radius: var(--navBarBorderRadius);
+  margin-top: calc(var(--spacing) * 20);
+  margin-bottom: calc(var(--spacing) * 10);
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menuItem > a {
+  display: block;
+  padding: var(--spacing) calc(var(--spacing) * 5);
+  border-radius: var(--secondaryBorderRadius);
+  color: var(--otherFontColor);
+  font-family: Jua;
+  font-size: var(--primaryFontSize);
+  font-weight: var(--otherFontWeight);
+  text-decoration: none;
+  transition: background-color var(--transitionDurationAndFunc);
+}
+
+.activeLink {
+  background-color: var(--otherLinkColor);
+}
+
+.menuItem > a:hover,
+.menuItem > a:focus {
+  background-color: var(--otherLinkColor);
+}

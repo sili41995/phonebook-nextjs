@@ -1,0 +1,6 @@
+.description {
+  color: var(--primaryFontColor);
+  font-family: Inter;
+  font-size: var(--primaryFontSize);
+  font-weight: var(--primaryFontWeight);
+}

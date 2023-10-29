@@ -1,10 +1,10 @@
 'use client';
 
+import './globals.css';
 import SharedLayout from '@/components/SharedLayout';
 import StyledComponentsRegistry from '@/lib/registry';
 import theme from '@/constants/theme';
 import { ThemeProvider } from 'styled-components';
-import GlobalStyle from '@/components/GlobalStyle';
 import Toast from '@/components/Toast';
 import ReduxProvider from '@/redux/ReduxProvider';
 
@@ -17,7 +17,6 @@ const RootLayout = ({ children }) => {
             <StyledComponentsRegistry>
               <SharedLayout>{children}</SharedLayout>
               <Toast />
-              <GlobalStyle />
             </StyledComponentsRegistry>
           </ThemeProvider>
         </ReduxProvider>

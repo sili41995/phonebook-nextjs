@@ -1,7 +1,7 @@
-'use client';
+import css from './AuthForm.module.css';
 
-import { FormContainer } from './AuthForm.styled';
-
-const AuthForm = ({ children }) => <FormContainer>{children}</FormContainer>;
+const AuthForm = ({ children }) => (
+  <div className={css.container}>{children}</div>
+);
 
 export default AuthForm;

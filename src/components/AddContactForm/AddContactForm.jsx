@@ -8,12 +8,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 import IconButton from '@/components/IconButton';
 import Input from '@/components/Input';
-import { Buttons, Form, Title } from './AddContactForm.styled';
 import { toasts } from '@/utils';
 import { iconBtnType } from '@/constants';
 import { selectContacts, selectIsLoading } from '@/redux/contacts/selectors';
 import { useRouter } from 'next/navigation';
 import { addContact } from '@/redux/contacts/operations';
+import css from './AddContactForm.module.css';
 
 const AddContactForm = () => {
   const contacts = useSelector(selectContacts);
@@ -53,8 +53,8 @@ const AddContactForm = () => {
 
   return (
     <>
-      <Title>Add contact</Title>
-      <Form onSubmit={handleSubmit(handleFormSubmit)}>
+      <p className={css.title}>Add contact</p>
+      <form className={css.form} onSubmit={handleSubmit(handleFormSubmit)}>
         <Input
           settings={{ ...register('name', { required: true, minLength: 1 }) }}
           type='text'
@@ -74,7 +74,7 @@ const AddContactForm = () => {
           fieldIconSize={18}
         />
         {errors.number && toasts.errorToast('Phone is required')}
-        <Buttons>
+        <div className={css.container}>
           <IconButton
             disabled={isLoading}
             btnType={iconBtnType.accept}
@@ -85,8 +85,8 @@ const AddContactForm = () => {
             <GiCheckMark />
           </IconButton>
           <IconButton onBtnClick={onCancelBtnClick}>Cancel</IconButton>
-        </Buttons>
-      </Form>
+        </div>
+      </form>
     </>
   );
 };

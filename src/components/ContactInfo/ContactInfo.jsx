@@ -1,19 +1,10 @@
-'use client';
-
 import { useTargetContact } from '@/hooks';
 import { getAvatar, getContactInfo } from '@/utils';
-import {
-  ContactDesc,
-  ContactName,
-  ContactTitle,
-  Avatar,
-  ListItem,
-  List,
-  Navigation,
-} from './ContactInfo.styled';
 import pagesPath from '@/constants/pagesPath';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
+import css from './ContactInfo.module.css';
 
 const ContactInfo = ({ children }) => {
   const targetContact = useTargetContact();
@@ -26,33 +17,35 @@ const ContactInfo = ({ children }) => {
 
   return (
     <>
-      <Avatar src={userAvatar} alt={`${name} photo`} />
-      <ContactTitle>
-        <ContactName>{name}</ContactName>
-        <ContactDesc>{role}</ContactDesc>
-      </ContactTitle>
-      <Navigation>
-        <List>
-          <ListItem>
+      <Image className={css.avatar} src={userAvatar} alt={`${name} photo`} />
+      <div className={css.infoWrap}>
+        <p className={css.name}>{name}</p>
+        <p className={css.role}>{role}</p>
+      </div>
+      <nav className={css.nav}>
+        <ul className={css.menu}>
+          <li className={css.menuItem}>
             <Link
               href={pagesPath.contactPath}
               className={
-                currentPage === pagesPath.contactPath ? 'active' : false
+                currentPage === pagesPath.contactPath ? css.activeLink : false
               }
             >
               Contact
             </Link>
-          </ListItem>
-          <ListItem>
+          </li>
+          <li className={css.menuItem}>
             <Link
               href={pagesPath.aboutPath}
-              className={currentPage === pagesPath.aboutPath ? 'active' : false}
+              className={
+                currentPage === pagesPath.aboutPath ? css.activeLink : false
+              }
             >
               About
             </Link>
-          </ListItem>
-        </List>
-      </Navigation>
+          </li>
+        </ul>
+      </nav>
       {children}
     </>
   );

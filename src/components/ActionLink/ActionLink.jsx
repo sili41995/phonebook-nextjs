@@ -1,17 +1,17 @@
-'use client';
-
-import { Link } from './ActionLink.styled';
-import { makeBlur } from '@/utils';
+import { getActionLinkClassName, makeBlur } from '@/utils';
+import css from './ActionLink.module.css';
 
 const ActionLink = ({ link, children, btnType }) => {
+  const classNam = getActionLinkClassName(css, btnType);
+
   const onBtnClick = (e) => {
     makeBlur(e.currentTarget);
   };
 
   return (
-    <Link btnType={btnType} href={link} onClick={onBtnClick}>
+    <a className={classNam} href={link} onClick={onBtnClick}>
       {children}
-    </Link>
+    </a>
   );
 };
 

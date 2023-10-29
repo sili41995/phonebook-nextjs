@@ -1,10 +1,9 @@
 'use client';
-// import { useParams } from 'react-router-dom';
+
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { CiEdit } from 'react-icons/ci';
-import { Container, ButtonContainer } from './ContactDetails.styled';
 import ContactInfo from '@/components/ContactInfo';
 import EditForm from '@/components/EditForm';
 import ContactModalForm from '@/components/ContactModalForm';
@@ -14,6 +13,7 @@ import { iconBtnType, pagesPath } from '@/constants';
 import { useDeleteContact } from '@/hooks';
 import { selectIsLoading } from '@/redux/contacts/selectors';
 import { useParams } from 'next/navigation';
+import css from './ContactDetails.module.css';
 
 const ContactDetails = ({ children }) => {
   const [editContact, setEditContact] = useState(false);
@@ -32,8 +32,8 @@ const ContactDetails = ({ children }) => {
 
   return (
     <>
-      <Container>
-        <ButtonContainer>
+      <div className={css.container}>
+        <div className={css.buttonsContainer}>
           {!editContact && (
             <IconButton
               disabled={isLoading}
@@ -55,7 +55,7 @@ const ContactDetails = ({ children }) => {
           >
             <CiEdit />
           </IconButton>
-        </ButtonContainer>
+        </div>
         {editContact ? (
           <ContactModalForm>
             <EditForm setEditContact={setEditState} />
@@ -63,7 +63,7 @@ const ContactDetails = ({ children }) => {
         ) : (
           <ContactInfo>{children}</ContactInfo>
         )}
-      </Container>
+      </div>
     </>
   );
 };
