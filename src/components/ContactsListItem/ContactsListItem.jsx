@@ -18,12 +18,14 @@ import {
 } from './ContactsListItem.styled';
 import { selectIsLoading } from '@/redux/contacts/selectors';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
 const ContactsListItem = ({ contact }) => {
   const { userAvatar, name, id, role, number, email } = getContactInfo(contact);
   const isLoading = useSelector(selectIsLoading);
   const deleteContact = useDeleteContact();
-  const path = `/${pagesPath.contactDetailsPath}/${id}/${pagesPath.contactPath}`;
+  const searchParams = useSearchParams();
+  const path = `/${pagesPath.contactDetailsPath}/${id}/${pagesPath.contactPath}?${searchParams}`;
 
   return (
     contact && (
