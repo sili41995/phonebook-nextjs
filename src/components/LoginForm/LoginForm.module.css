@@ -1,0 +1,49 @@
+.title {
+  text-transform: uppercase;
+  color: var(--primaryFontColor);
+  font-family: Inter;
+  font-size: var(--titleFontSize);
+  font-weight: var(--primaryFontWeight);
+}
+
+.message {
+  color: var(--primaryFontColor);
+  font-family: Inter;
+  font-size: var(--secondaryFontSize);
+  font-weight: var(--primaryFontWeight);
+}
+
+.avatar {
+  width: 150px;
+  height: auto;
+  align-self: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--primaryGap);
+}
+
+.button {
+  display: block;
+  min-width: 170px;
+  padding: 16px 32px;
+  align-self: center;
+  background-color: var(--primaryColor);
+  border-color: transparent;
+  border-radius: var(--primaryBorderRadius);
+  color: var(--whiteColor);
+  text-align: center;
+  font-family: Inter;
+  font-size: var(--primaryFontSize);
+  font-weight: var(--primaryFontWeight);
+  line-height: 1.5;
+  letter-spacing: 0.64px;
+  transition: background-color var(--transitionDurationAndFunc);
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--secondaryColor);
+}

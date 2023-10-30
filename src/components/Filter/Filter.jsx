@@ -63,10 +63,10 @@ const Filter = () => {
           inputType={formType.filter}
           autoFocus
           inputWrap
-          btnType={iconBtnType.clearFilter}
+          btnType={filter && iconBtnType.clearFilter}
           action={onClearFilterBtnClick}
         >
-          {filter && <IoMdClose />}
+          {<IoMdClose />}
         </Input>
       )}
       <IconButton

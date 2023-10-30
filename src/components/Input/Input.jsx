@@ -1,8 +1,6 @@
-'use client';
-
-import { forwardRef } from 'react';
-import { Container, StyledInput } from './Input.styled';
 import IconButton from '@/components/IconButton';
+import css from './Input.module.css';
+import { formType } from '@/constants';
 
 const Input = ({
   fieldIcon,
@@ -12,11 +10,25 @@ const Input = ({
   children,
   action,
   right = 0,
+  inputType,
   ...otherProps
 }) => {
-  const input = <StyledInput {...settings} {...otherProps} />;
+  const getInputClassName = (css, inputType) => {
+    switch (inputType) {
+      case formType.filter:
+        return css.filter;
+
+      case formType.authForm:
+        return css.authForm;
+
+      default:
+        return css.input;
+    }
+  };
+  const className = getInputClassName(css, inputType);
+  const input = <input className={className} {...settings} {...otherProps} />;
   const inputWithWrap = (
-    <Container {...otherProps}>
+    <div className={css.container} {...otherProps}>
       {input}
       {fieldIcon}
       {btnType && (
@@ -33,7 +45,7 @@ const Input = ({
           {children}
         </IconButton>
       )}
-    </Container>
+    </div>
   );
 
   return inputWrap ? inputWithWrap : input;

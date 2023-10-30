@@ -1,15 +1,9 @@
-'use client';
-
 import { SlLogout } from 'react-icons/sl';
-// import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { GrAddCircle } from 'react-icons/gr';
 import IconButton from '@/components/IconButton';
-// import Filter from 'components/Filter';
-// import LinkWithQuery from 'components/LinkWithQuery';
 import 'react-toastify/dist/ReactToastify.css';
 import Link from 'next/link';
-import { IconContainer, LinkContainer } from './PrivateLinks.styled';
 import { makeBlur, toasts, isContactsPage } from '@/utils';
 import { pagesPath, iconBtnType } from '@/constants';
 import { selectContacts } from '@/redux/contacts/selectors';
@@ -17,6 +11,7 @@ import { logoutUser } from '@/redux/auth/operations';
 import Filter from '@/components/Filter';
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
+import css from './PrivateLinks.module.css';
 
 const PrivateLinks = () => {
   const contacts = useSelector(selectContacts);
@@ -37,12 +32,12 @@ const PrivateLinks = () => {
   };
 
   return (
-    <LinkContainer>
+    <div className={css.container}>
       {isShowFilter && <Filter />}
       <Link href={path}>
-        <IconContainer>
+        <span className={css.iconWrap}>
           <GrAddCircle />
-        </IconContainer>
+        </span>
         New Contact
       </Link>
       <IconButton
@@ -51,12 +46,12 @@ const PrivateLinks = () => {
         width={44}
         onBtnClick={onLogoutBtnClick}
       >
-        <IconContainer>
+        <span className={css.iconWrap}>
           <SlLogout />
-        </IconContainer>
+        </span>
         Logout
       </IconButton>
-    </LinkContainer>
+    </div>
   );
 };
 

@@ -1,12 +1,10 @@
-'use client';
-
-import { Title, Message } from './NotFound.styled';
+import css from './NotFound.module.css';
 
 const NotFound = () => (
-  <>
-    <Title>Not Found</Title>
-    <Message>The request URL was not found on this server</Message>
-  </>
+  <div>
+    <p className={css.title}>Not Found</p>
+    <p className={css.message}>The request URL was not found on this server</p>
+  </div>
 );
 
 export default NotFound;

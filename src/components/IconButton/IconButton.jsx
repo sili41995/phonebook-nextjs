@@ -1,31 +1,24 @@
 import css from './IconButton.module.css';
+import { getIconButtonClassName, getIconButtonStyleProp } from '@/utils';
 
 const IconButton = ({
   children,
   type = 'button',
   onBtnClick,
-  position = 'static',
-  top,
-  right = 0,
-  width,
-  height,
-  inputWrap,
+  btnType,
+  ...otherProps
 }) => {
-  const topValue = top === 'center' ? '50%' : `${top}px`;
-  const translateYValue = top === 'center' ? '-50%' : 0;
-  const styles = {
-    position,
-    top: topValue,
-    right,
-    transform: `translateY(${translateYValue})`,
-    minWidth: width,
-    height,
-  };
+  const className = getIconButtonClassName(css, btnType);
+  const styleProp = getIconButtonStyleProp({
+    ...otherProps,
+    btnType,
+    css,
+  });
 
   return (
     <button
-      className={inputWrap ? css.button : css.buttonWithShadow}
-      style={styles}
+      className={`${styleProp.hoverClassName} ${className}`}
+      style={styleProp.styles}
       type={type}
       onClick={onBtnClick}
     >

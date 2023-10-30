@@ -13,6 +13,7 @@
   text-decoration: none;
   transition: box-shadow var(--transitionDurationAndFunc);
   z-index: 10;
+  background-color: var(--lightgreyBtnColor);
 }
 
 .button svg {
@@ -29,16 +30,111 @@
 .buttonWithShadow:focus {
   box-shadow: var(--primaryShadow);
 }
-/* 
-export const Button = styled.button`
-  background-color: ${setButtonColor};
 
-  & svg {
-    color: ${setIconFill};
-  }
-  & svg:hover,
-  & svg:focus {
-    color: ${({ btnType, inputWrap }) =>
-      inputWrap && setIconHoverEffect(btnType)};
-  }
-`; */
+.hoveredIcon {
+  composes: button;
+}
+
+.hoveredIcon > svg:hover,
+.hoveredIcon > svg:focus {
+  color: var(--secondaryColor);
+}
+
+.delete {
+  composes: button;
+  background-color: var(--redBtnColor);
+}
+
+.delete > svg {
+  color: var(--redIconColor);
+}
+
+.edit {
+  composes: button;
+  background-color: var(--blueBtnColor);
+}
+
+.edit > svg {
+  color: var(--blueIconColor);
+}
+
+.phone {
+  composes: button;
+  background-color: var(--greenBtnColor);
+}
+
+.phone > svg {
+  color: var(--greenIconColor);
+}
+
+.message {
+  composes: button;
+  background-color: var(--yellowBtnColor);
+}
+
+.message > svg {
+  color: var(--yellowIconColor);
+}
+
+.chat {
+  composes: button;
+  background-color: var(--blueBtnColor);
+}
+
+.chat > svg {
+  color: var(--blueIconColor);
+}
+
+.logout {
+  composes: button;
+  background-color: var(--redBtnColor);
+}
+
+.logout > svg {
+  color: var(--redIconColor);
+}
+
+.accept {
+  composes: button;
+  background-color: var(--greenBtnColor);
+}
+
+.accept > svg {
+  color: var(--greenIconColor);
+}
+
+.cancel {
+  composes: button;
+  background-color: var(--redBtnColor);
+}
+
+.cancel > svg {
+  color: var(--redIconColor);
+}
+
+.deleteTransparent {
+  composes: button;
+  background-color: transparent;
+}
+
+.deleteTransparent > svg {
+  color: var(--redIconColor);
+}
+
+.toggleShowPassword {
+  composes: button;
+  background-color: transparent;
+}
+
+.toggleShowPassword > svg {
+  color: var(--primaryColor);
+}
+
+.clearFilter {
+  composes: button;
+  background-color: transparent;
+}
+
+.clearFilter > svg {
+  color: var(--whiteColor);
+}

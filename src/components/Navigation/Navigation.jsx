@@ -1,15 +1,11 @@
-'use client';
-
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
-// import { NavLink } from 'react-router-dom';
-import { NavContainer, List, ListItem } from './Navigation.styled';
 import { pagesPath } from '@/constants';
 import PrivateLinks from '@/components/PrivateLinks';
 import PublicLinks from '@/components/PublicLinks';
 import { usePathname } from 'next/navigation';
-// import { pagesPath } from 'constants';
 import { selectIsLoggedIn } from '@/redux/auth/selectors';
+import css from './Navigation.module.css';
 
 const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -18,27 +14,27 @@ const Navigation = () => {
   const aboutPagePath = `/${pagesPath.aboutPath}`;
 
   return (
-    <NavContainer>
-      <List>
-        <ListItem>
+    <nav className={css.nav}>
+      <ul className={css.menu}>
+        <li className={css.menuItem}>
           <Link
             href={contactsPagePath}
             className={pathname === contactsPagePath ? 'active' : false}
           >
             Contacts
           </Link>
-        </ListItem>
-        <ListItem>
+        </li>
+        <li className={css.menuItem}>
           <Link
             href={aboutPagePath}
             className={pathname === aboutPagePath ? 'active' : false}
           >
             About
           </Link>
-        </ListItem>
-      </List>
+        </li>
+      </ul>
       {isLoggedIn ? <PrivateLinks /> : <PublicLinks />}
-    </NavContainer>
+    </nav>
   );
 };
 
