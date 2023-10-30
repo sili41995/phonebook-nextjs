@@ -1,5 +1,3 @@
-'use client';
-
 import { HiPhone } from 'react-icons/hi';
 import { FaUser } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,7 +5,6 @@ import { GoX } from 'react-icons/go';
 import { GiCheckMark } from 'react-icons/gi';
 import { useForm } from 'react-hook-form';
 import 'react-toastify/dist/ReactToastify.css';
-import { Buttons, Form, Title } from './EditForm.styled';
 import IconButton from '@/components/IconButton';
 import Input from '@/components/Input';
 import { getContactInfo, toasts } from '@/utils';
@@ -16,6 +13,7 @@ import { pagesPath, iconBtnType } from '@/constants';
 import { updateContact } from '@/redux/contacts/operations';
 import { selectIsLoading } from '@/redux/contacts/selectors';
 import { useParams } from 'next/navigation';
+import css from './EditForm.module.css';
 
 const EditForm = ({ setEditContact }) => {
   const isLoading = useSelector(selectIsLoading);
@@ -42,8 +40,8 @@ const EditForm = ({ setEditContact }) => {
 
   return (
     <>
-      <Title>Contact editing</Title>
-      <Form onSubmit={handleSubmit(handleFormSubmit)}>
+      <p className={css.title}>Contact editing</p>
+      <form className={css.form} onSubmit={handleSubmit(handleFormSubmit)}>
         <Input
           defaultValue={name}
           settings={{ ...register('name', { required: true }) }}
@@ -64,7 +62,7 @@ const EditForm = ({ setEditContact }) => {
           fieldIconSize={18}
         />
         {errors.number && toasts.errorToast('Phone is required')}
-        <Buttons>
+        <div className={css.buttonsContainer}>
           <IconButton
             disabled={isLoading}
             btnType={iconBtnType.accept}
@@ -82,8 +80,8 @@ const EditForm = ({ setEditContact }) => {
           >
             <GoX />
           </IconButton>
-        </Buttons>
-      </Form>
+        </div>
+      </form>
     </>
   );
 };

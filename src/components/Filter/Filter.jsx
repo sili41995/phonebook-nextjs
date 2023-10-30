@@ -1,11 +1,8 @@
-'use client';
-
 import { IoMdClose } from 'react-icons/io';
 import { BsSortAlphaDown } from 'react-icons/bs';
 import { BsSortAlphaDownAlt } from 'react-icons/bs';
 import { FiFilter } from 'react-icons/fi';
 import { useEffect, useRef, useState } from 'react';
-import { FilterContainer } from './Filter.styled';
 import { makeBlur } from '@/utils';
 import IconButton from '@/components/IconButton';
 import Input from '@/components/Input';
@@ -17,6 +14,7 @@ import {
 } from '@/constants';
 import { useSearchParams } from 'next/navigation';
 import useSetQueryString from '@/hooks/useSetQueryString';
+import css from './Filter.module.css';
 
 const Filter = () => {
   const { FILTER_SP_KEY, SORT_SP_KEY } = searchParamsKeys;
@@ -56,7 +54,7 @@ const Filter = () => {
   };
 
   return (
-    <FilterContainer>
+    <div className={css.container}>
       {showFilter && (
         <Input
           type='text'
@@ -87,7 +85,7 @@ const Filter = () => {
       >
         {deskSortType ? <BsSortAlphaDown /> : <BsSortAlphaDownAlt />}
       </IconButton>
-    </FilterContainer>
+    </div>
   );
 };
 

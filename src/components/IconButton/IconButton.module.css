@@ -1,0 +1,44 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--primaryGap);
+  padding: var(--spacing);
+  border-radius: var(--secondaryBorderRadius);
+  border-color: transparent;
+  color: var(--primaryFontColor);
+  font-family: Inter;
+  font-size: var(--primaryFontSize);
+  font-weight: var(--primaryFontWeight);
+  text-decoration: none;
+  transition: box-shadow var(--transitionDurationAndFunc);
+  z-index: 10;
+}
+
+.button svg {
+  width: 100%;
+  height: 100%;
+  transition: var(--transitionDurationAndFunc);
+}
+
+.buttonWithShadow {
+  composes: button;
+}
+
+.buttonWithShadow:hover,
+.buttonWithShadow:focus {
+  box-shadow: var(--primaryShadow);
+}
+/* 
+export const Button = styled.button`
+  background-color: ${setButtonColor};
+
+  & svg {
+    color: ${setIconFill};
+  }
+  & svg:hover,
+  & svg:focus {
+    color: ${({ btnType, inputWrap }) =>
+      inputWrap && setIconHoverEffect(btnType)};
+  }
+`; */

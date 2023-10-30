@@ -1,14 +1,12 @@
-'use client';
-
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import ContactsListItem from '@/components/ContactsListItem';
 import EmptyListMessage from '@/components/EmptyListMessage';
-import { Container, List } from './ContactsList.styled';
 import { searchParamsKeys } from '@/constants';
 import { filterContactsByName, sortContactsByName } from '@/utils';
 import { selectContacts } from '@/redux/contacts/selectors';
 import { useSearchParams } from 'next/navigation';
+import css from './ContactsList.module.css';
 
 const ContactsList = () => {
   const contacts = useSelector(selectContacts);
@@ -22,17 +20,17 @@ const ContactsList = () => {
   }, [contacts, filter, sortType]);
 
   return (
-    <Container>
+    <div className={css.container}>
       {!!contacts.length ? (
-        <List>
+        <ul className={css.contactsList}>
           {filteredContacts.map((contact) => (
             <ContactsListItem contact={contact} key={contact.id} />
           ))}
-        </List>
+        </ul>
       ) : (
         <EmptyListMessage />
       )}
-    </Container>
+    </div>
   );
 };
 

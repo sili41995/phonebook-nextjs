@@ -1,7 +1,7 @@
-'use client';
+import css from './EmptyListMessage.module.css';
 
-import { Message } from './EmptyListMessage.styled';
-
-const EmptyListMessage = () => <Message>Contact list is empty</Message>;
+const EmptyListMessage = () => (
+  <p className={css.message}>Contact list is empty</p>
+);
 
 export default EmptyListMessage;

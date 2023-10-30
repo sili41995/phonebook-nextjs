@@ -1,24 +1,14 @@
-'use client';
-
 import { useSelector } from 'react-redux';
 import { AiOutlineDelete } from 'react-icons/ai';
 import IconButton from '@/components/IconButton';
 import { pagesPath, iconBtnType } from '@/constants';
 import { getContactInfo } from '@/utils';
 import { useDeleteContact } from '@/hooks';
-import {
-  Email,
-  Avatar,
-  Item,
-  Role,
-  Name,
-  Phone,
-  ContactInfo,
-  Person,
-} from './ContactsListItem.styled';
 import { selectIsLoading } from '@/redux/contacts/selectors';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
+import css from './ContactsListItem.module.css';
+import Image from 'next/image';
 
 const ContactsListItem = ({ contact }) => {
   const { userAvatar, name, id, role, number, email } = getContactInfo(contact);
@@ -29,17 +19,17 @@ const ContactsListItem = ({ contact }) => {
 
   return (
     contact && (
-      <Item>
-        <Link href={path}>
-          <Avatar src={userAvatar} alt={name} />
-          <ContactInfo>
-            <Person>
-              <Name>{name}</Name>
-              <Role>{role}</Role>
-            </Person>
-            <Phone>{number}</Phone>
-            <Email>{email}</Email>
-          </ContactInfo>
+      <li className={css.contactItem}>
+        <Link className={css.contactLink} href={path}>
+          <Image className={css.avatar} src={userAvatar} alt={name} />
+          <div className={css.infoWrap}>
+            <div>
+              <p className={css.name}>{name}</p>
+              <p className={css.role}>{role}</p>
+            </div>
+            <p className={css.phone}>{number}</p>
+            <p className={css.email}>{email}</p>
+          </div>
         </Link>
         <IconButton
           top={0}
@@ -55,7 +45,7 @@ const ContactsListItem = ({ contact }) => {
         >
           <AiOutlineDelete />
         </IconButton>
-      </Item>
+      </li>
     )
   );
 };

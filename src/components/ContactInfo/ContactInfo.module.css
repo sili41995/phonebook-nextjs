@@ -1,13 +1,13 @@
 .avatar {
   width: 112px;
   height: auto;
-  margin: 0 auto calc(var(--spacing) * 2);
+  margin: 0 auto 8px;
 }
 
 .infoWrap {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--spacing) * 2);
+  gap: 8px;
 }
 
 .name {
@@ -30,8 +30,8 @@
   background-color: var(--lightgreyColor);
   padding: var(--spacing);
   border-radius: var(--navBarBorderRadius);
-  margin-top: calc(var(--spacing) * 20);
-  margin-bottom: calc(var(--spacing) * 10);
+  margin-top: 80px;
+  margin-bottom: 40px;
 }
 
 .menu {
@@ -41,7 +41,7 @@
 
 .menuItem > a {
   display: block;
-  padding: var(--spacing) calc(var(--spacing) * 5);
+  padding: var(--spacing) 20px;
   border-radius: var(--secondaryBorderRadius);
   color: var(--otherFontColor);
   font-family: Jua;

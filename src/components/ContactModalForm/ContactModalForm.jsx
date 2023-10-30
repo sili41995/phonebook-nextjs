@@ -1,7 +1,7 @@
-'use client';
+import css from './ContactModalForm.module.css';
 
-import { Container } from './ContactModalForm.styled';
-
-const ContactModalForm = ({ children }) => <Container>{children}</Container>;
+const ContactModalForm = ({ children }) => (
+  <div className={css.container}>{children}</div>
+);
 
 export default ContactModalForm;

@@ -14,7 +14,7 @@
 
 .container {
   display: flex;
-  gap: calc(var(--spacing) * 10);
+  gap: 40px;
   align-self: center;
 }
 
