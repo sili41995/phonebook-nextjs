@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import IconButton from '@/components/IconButton';
 import Input from '@/components/Input';
 import { toasts } from '@/utils';
-import { iconBtnType } from '@/constants';
+import { iconBtnType, iconSizes } from '@/constants';
 import { selectContacts, selectIsLoading } from '@/redux/contacts/selectors';
 import { useRouter } from 'next/navigation';
 import { addContact } from '@/redux/contacts/operations';
@@ -61,7 +61,7 @@ const AddContactForm = () => {
           placeholder='Name'
           autoFocus
           inputWrap
-          fieldIcon={<FaUser size={18} />}
+          fieldIcon={<FaUser size={iconSizes.inputIcon} />}
         />
         {errors.name && toasts.errorToast('Name is required')}
         <Input
@@ -69,7 +69,7 @@ const AddContactForm = () => {
           type='tel'
           placeholder='Phone'
           inputWrap
-          fieldIcon={<HiPhone size={18} />}
+          fieldIcon={<HiPhone size={iconSizes.inputIcon} />}
         />
         {errors.number && toasts.errorToast('Phone is required')}
         <div className={css.container}>

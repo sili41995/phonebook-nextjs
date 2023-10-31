@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import AuthFormMessage from '@/components/AuthFormMessage';
 import Input from '@/components/Input';
-import { formType, iconBtnType, pagesPath } from '@/constants';
+import { formType, iconBtnType, iconSizes, pagesPath } from '@/constants';
 import { MdEmail } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
@@ -34,9 +34,9 @@ const LoginForm = () => {
   const inputType = isShowPassword ? 'text' : 'password';
   const pageLink = `/${pagesPath.registerPath}`;
   const inputPasswordBtnIcon = isShowPassword ? (
-    <AiOutlineEyeInvisible size={23} />
+    <AiOutlineEyeInvisible size={iconSizes.primaryIconSize} />
   ) : (
-    <AiOutlineEye size={23} />
+    <AiOutlineEye size={iconSizes.primaryIconSize} />
   );
 
   const toggleIsShowPassword = () => {
@@ -64,7 +64,7 @@ const LoginForm = () => {
           inputType={formType.authForm}
           autoFocus
           inputWrap
-          fieldIcon={<MdEmail size={20} />}
+          fieldIcon={<MdEmail size={iconSizes.secondaryIconSize} />}
         />
         {errors.email && toasts.errorToast('Email is required')}
         <Input
@@ -77,7 +77,7 @@ const LoginForm = () => {
           btnType={watchPassword && iconBtnType.toggleShowPassword}
           action={toggleIsShowPassword}
           inputWrap
-          fieldIcon={<AiFillLock size={20} />}
+          fieldIcon={<AiFillLock size={iconSizes.secondaryIconSize} />}
           btnIcon={inputPasswordBtnIcon}
         />
 

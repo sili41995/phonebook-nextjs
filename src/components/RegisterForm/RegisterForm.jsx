@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form';
 import 'react-toastify/dist/ReactToastify.css';
 import { toasts } from '@/utils';
 import AuthFormMessage from '@/components/AuthFormMessage';
-import { formType, pagesPath } from '@/constants';
+import { formType, iconSizes, pagesPath } from '@/constants';
 import Input from '@/components/Input';
 import { registerUser } from '@/redux/auth/operations';
 import { selectIsLoading } from '@/redux/auth/selectors';
@@ -44,7 +44,7 @@ const RegisterForm = () => {
           inputType={formType.authForm}
           autoFocus
           inputWrap
-          fieldIcon={<FaUser size={20} />}
+          fieldIcon={<FaUser size={iconSizes.secondaryIconSize} />}
         />
         {errors.name && toasts.errorToast('Username is required')}
         <Input
@@ -53,7 +53,7 @@ const RegisterForm = () => {
           placeholder='Email'
           inputType={formType.authForm}
           inputWrap
-          fieldIcon={<MdEmail size={20} />}
+          fieldIcon={<MdEmail size={iconSizes.secondaryIconSize} />}
         />
         {errors.email && toasts.errorToast('Email is required')}
         <Input
@@ -64,7 +64,7 @@ const RegisterForm = () => {
           placeholder='Password'
           inputType={formType.authForm}
           inputWrap
-          fieldIcon={<AiFillLock size={20} />}
+          fieldIcon={<AiFillLock size={iconSizes.secondaryIconSize} />}
         />
         {errors.password &&
           toasts.errorToast(

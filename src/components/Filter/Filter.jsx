@@ -11,6 +11,7 @@ import {
   searchParamsKeys,
   formType,
   iconBtnType,
+  iconSizes,
 } from '@/constants';
 import { useSearchParams } from 'next/navigation';
 import useSetQueryString from '@/hooks/useSetQueryString';
@@ -25,9 +26,9 @@ const Filter = () => {
   const deskSortType = searchParams.get(SORT_SP_KEY) === DESC_SORT_TYPE;
   const setQueryString = useSetQueryString();
   const sortBtnIcon = deskSortType ? (
-    <BsSortAlphaDown size={28} />
+    <BsSortAlphaDown size={iconSizes.otherIconSize} />
   ) : (
-    <BsSortAlphaDownAlt size={28} />
+    <BsSortAlphaDownAlt size={iconSizes.otherIconSize} />
   );
   useEffect(() => {
     if (!showFilter) {
@@ -69,14 +70,14 @@ const Filter = () => {
           inputWrap
           btnType={filter && iconBtnType.clearFilter}
           action={onClearFilterBtnClick}
-          btnIcon={<IoMdClose size={23} />}
+          btnIcon={<IoMdClose size={iconSizes.primaryIconSize} />}
         />
       )}
       <IconButton
         btnType={iconBtnType.filter}
         width={44}
         onBtnClick={onFilterBtnClick}
-        icon={<FiFilter size={28} />}
+        icon={<FiFilter size={iconSizes.otherIconSize} />}
       />
 
       <IconButton

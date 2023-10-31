@@ -7,7 +7,7 @@ import IconButton from '@/components/IconButton';
 import 'react-toastify/dist/ReactToastify.css';
 import Link from 'next/link';
 import { makeBlur, toasts, isContactsPage } from '@/utils';
-import { pagesPath, iconBtnType } from '@/constants';
+import { pagesPath, iconBtnType, iconSizes } from '@/constants';
 import { selectContacts } from '@/redux/contacts/selectors';
 import { logoutUser } from '@/redux/auth/operations';
 import Filter from '@/components/Filter';
@@ -46,12 +46,11 @@ const PrivateLinks = () => {
       </Link>
       <IconButton
         btnType={iconBtnType.logout}
-        iconSize={28}
         width={44}
         onBtnClick={onLogoutBtnClick}
       >
         <span className={css.iconWrap}>
-          <SlLogout size={28} />
+          <SlLogout size={iconSizes.otherIconSize} />
         </span>
         Logout
       </IconButton>

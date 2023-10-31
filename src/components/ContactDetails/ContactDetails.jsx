@@ -9,7 +9,7 @@ import EditForm from '@/components/EditForm';
 import ContactModalForm from '@/components/ContactModalForm';
 import IconButton from '@/components/IconButton';
 import { makeBlur } from '@/utils';
-import { iconBtnType, pagesPath } from '@/constants';
+import { iconBtnType, iconSizes, pagesPath } from '@/constants';
 import { useDeleteContact } from '@/hooks';
 import { selectIsLoading } from '@/redux/contacts/selectors';
 import { useParams } from 'next/navigation';
@@ -40,7 +40,7 @@ const ContactDetails = ({ children }) => {
               btnType={iconBtnType.delete}
               width={44}
               height={35}
-              icon={<AiOutlineDelete size={23} />}
+              icon={<AiOutlineDelete size={iconSizes.primaryIconSize} />}
               onBtnClick={() => {
                 deleteContact(id);
               }}
@@ -51,7 +51,7 @@ const ContactDetails = ({ children }) => {
             width={44}
             height={35}
             onBtnClick={handleEditBtnClick}
-            icon={<CiEdit size={23} />}
+            icon={<CiEdit size={iconSizes.primaryIconSize} />}
           />
         </div>
         {editContact ? (

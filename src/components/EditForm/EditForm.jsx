@@ -9,7 +9,7 @@ import IconButton from '@/components/IconButton';
 import Input from '@/components/Input';
 import { getContactInfo, toasts } from '@/utils';
 import { useTargetContact } from '@/hooks';
-import { pagesPath, iconBtnType } from '@/constants';
+import { pagesPath, iconBtnType, iconSizes } from '@/constants';
 import { updateContact } from '@/redux/contacts/operations';
 import { selectIsLoading } from '@/redux/contacts/selectors';
 import { useParams } from 'next/navigation';
@@ -48,7 +48,7 @@ const EditForm = ({ setEditContact }) => {
           type='text'
           placeholder='Name'
           inputWrap
-          fieldIcon={<FaUser size={18} />}
+          fieldIcon={<FaUser size={iconSizes.inputIcon} />}
         />
         {errors.name && toasts.errorToast('Name is required')}
         <Input
@@ -57,7 +57,7 @@ const EditForm = ({ setEditContact }) => {
           type='tel'
           placeholder='Phone'
           inputWrap
-          fieldIcon={<HiPhone size={18} />}
+          fieldIcon={<HiPhone size={iconSizes.inputIcon} />}
         />
         {errors.number && toasts.errorToast('Phone is required')}
         <div className={css.buttonsContainer}>
@@ -67,14 +67,14 @@ const EditForm = ({ setEditContact }) => {
             width={44}
             height={35}
             type='submit'
-            icon={<GiCheckMark size={23} />}
+            icon={<GiCheckMark size={iconSizes.primaryIconSize} />}
           />
           <IconButton
             btnType={iconBtnType.cancel}
             width={44}
             height={35}
             onBtnClick={setEditContact}
-            icon={<GoX size={23} />}
+            icon={<GoX size={iconSizes.primaryIconSize} />}
           />
         </div>
       </form>
