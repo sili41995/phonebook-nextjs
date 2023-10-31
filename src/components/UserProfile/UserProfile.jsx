@@ -1,22 +1,11 @@
-'use client';
-
 import { useSelector } from 'react-redux';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { HiOutlinePhone } from 'react-icons/hi';
 import { SlLocationPin } from 'react-icons/sl';
 import { getUserInfo } from '@/utils';
-import {
-  UserInfo,
-  Email,
-  FullName,
-  Avatar,
-  Name,
-  ContactInfo,
-  UserData,
-  ContactInfoIconWrap,
-  UserProfileContainer,
-} from './UserProfile.styled';
 import { selectUser } from '@/redux/auth/selectors';
+import Image from 'next/image';
+import css from './UserProfile.module.css';
 
 const UserProfile = () => {
   const user = useSelector(selectUser);
@@ -31,34 +20,34 @@ const UserProfile = () => {
   } = getUserInfo(user);
 
   return (
-    <UserProfileContainer>
-      <Name>{name}</Name>
-      <UserData>
-        <Avatar src={userAvatar} alt='user avatar' />
-        <FullName>{userName}</FullName>
-        <Email>{email}</Email>
-      </UserData>
-      <UserInfo>
-        <ContactInfo>
-          <ContactInfoIconWrap>
+    <div className={css.container}>
+      <p className={css.name}>{name}</p>
+      <div className={css.data}>
+        <Image className={css.avatar} src={userAvatar} alt='user avatar' />
+        <p className={css.fullName}>{userName}</p>
+        <p className={css.email}>{email}</p>
+      </div>
+      <div>
+        <div className={css.info}>
+          <span className={css.iconWrap}>
             <AiOutlineCalendar />
-          </ContactInfoIconWrap>
+          </span>
           {dateOfBirth}
-        </ContactInfo>
-        <ContactInfo>
-          <ContactInfoIconWrap>
+        </div>
+        <div className={css.info}>
+          <span className={css.iconWrap}>
             <HiOutlinePhone />
-          </ContactInfoIconWrap>
+          </span>
           {phoneNumber}
-        </ContactInfo>
-        <ContactInfo>
-          <ContactInfoIconWrap>
+        </div>
+        <div className={css.info}>
+          <span className={css.iconWrap}>
             <SlLocationPin />
-          </ContactInfoIconWrap>
+          </span>
           {location}
-        </ContactInfo>
-      </UserInfo>
-    </UserProfileContainer>
+        </div>
+      </div>
+    </div>
   );
 };
 

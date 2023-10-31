@@ -1,3 +1,5 @@
+'use client';
+
 import { FaUser } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { AiFillLock } from 'react-icons/ai';
@@ -60,7 +62,7 @@ const RegisterForm = () => {
           settings={{
             ...register('password', { required: true, minLength: 7 }),
           }}
-          type='password'
+          type='text'
           placeholder='Password'
           inputType={formType.authForm}
           inputWrap

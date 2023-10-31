@@ -1,40 +1,38 @@
 'use client';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { Container, Header, Main, Section } from './SharedLayout.styled';
 import Navigation from '@/components/Navigation';
 import { refreshUser } from '@/redux/auth/operations';
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { setAuthPageBackgroundColor, isContactsPage } from '@/utils';
+import { setAuthPageBackgroundColor, getContainerClassName } from '@/utils';
 import { selectIsRefreshing } from '@/redux/auth/selectors';
+import css from './SharedLayout.module.css';
 
 const SharedLayout = ({ children }) => {
   const dispatch = useDispatch();
   const pathname = usePathname();
   const isRefreshing = useSelector(selectIsRefreshing);
+  const containerClassName = getContainerClassName(css, pathname);
+  setAuthPageBackgroundColor(pathname);
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  setAuthPageBackgroundColor(pathname);
-
   return (
     !isRefreshing && (
       <>
-        <Header>
-          <Container>
+        <header className={css.header}>
+          <div className={css.container}>
             <Navigation />
-          </Container>
-        </Header>
-        <Main>
-          <Section>
-            <Container isContactsPage={isContactsPage(pathname)}>
-              {children}
-            </Container>
-          </Section>
-        </Main>
+          </div>
+        </header>
+        <main>
+          <section className={css.section}>
+            <div className={containerClassName}>{children}</div>
+          </section>
+        </main>
       </>
     )
   );

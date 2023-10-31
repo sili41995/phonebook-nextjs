@@ -13,7 +13,7 @@ const PublicLinks = () => {
       <li className={css.menuItem}>
         <Link
           href={registerPagePath}
-          className={pathname === registerPagePath ? 'active' : false}
+          className={pathname === registerPagePath ? 'active' : ''}
         >
           Sign up
         </Link>
@@ -21,7 +21,7 @@ const PublicLinks = () => {
       <li className={css.menuItem}>
         <Link
           href={loginPagePath}
-          className={pathname === loginPagePath ? 'active' : false}
+          className={pathname === loginPagePath ? 'active' : ''}
         >
           Log in
         </Link>

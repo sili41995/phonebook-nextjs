@@ -19,7 +19,7 @@ const Navigation = () => {
         <li className={css.menuItem}>
           <Link
             href={contactsPagePath}
-            className={pathname === contactsPagePath ? 'active' : false}
+            className={pathname === contactsPagePath ? 'active' : ''}
           >
             Contacts
           </Link>
@@ -27,7 +27,7 @@ const Navigation = () => {
         <li className={css.menuItem}>
           <Link
             href={aboutPagePath}
-            className={pathname === aboutPagePath ? 'active' : false}
+            className={pathname === aboutPagePath ? 'active' : ''}
           >
             About
           </Link>
