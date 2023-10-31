@@ -48,8 +48,7 @@ const EditForm = ({ setEditContact }) => {
           type='text'
           placeholder='Name'
           inputWrap
-          fieldIcon={<FaUser />}
-          fieldIconSize={18}
+          fieldIcon={<FaUser size={18} />}
         />
         {errors.name && toasts.errorToast('Name is required')}
         <Input
@@ -58,8 +57,7 @@ const EditForm = ({ setEditContact }) => {
           type='tel'
           placeholder='Phone'
           inputWrap
-          fieldIcon={<HiPhone />}
-          fieldIconSize={18}
+          fieldIcon={<HiPhone size={18} />}
         />
         {errors.number && toasts.errorToast('Phone is required')}
         <div className={css.buttonsContainer}>
@@ -69,17 +67,15 @@ const EditForm = ({ setEditContact }) => {
             width={44}
             height={35}
             type='submit'
-          >
-            <GiCheckMark />
-          </IconButton>
+            icon={<GiCheckMark size={23} />}
+          />
           <IconButton
             btnType={iconBtnType.cancel}
             width={44}
             height={35}
             onBtnClick={setEditContact}
-          >
-            <GoX />
-          </IconButton>
+            icon={<GoX size={23} />}
+          />
         </div>
       </form>
     </>

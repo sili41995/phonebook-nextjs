@@ -1,29 +1,31 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { toasts } from '@/utils';
-import { pagesPath } from '@/constants';
 import { deleteContact } from '@/redux/contacts/operations';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 const useDeleteContact = () => {
   const [contactId, setContactId] = useState(null);
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
-  // const { search } = useLocation();
-  // const path = `/${pagesPath.contactsPath + search}`;
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const navigationPath = `/contacts?${searchParams}`;
 
   useEffect(() => {
     if (contactId) {
       dispatch(deleteContact(contactId))
         .unwrap()
         .then(() => {
-          // navigate(path);
           toasts.successToast('Contact successfully removed');
+          router.push(navigationPath, {
+            scroll: false,
+          });
         })
         .catch(() => {
           toasts.errorToast('Deleting a contact failed');
         });
     }
-  }, [contactId, dispatch]);
+  }, [contactId, dispatch, navigationPath, router]);
 
   return setContactId;
 };

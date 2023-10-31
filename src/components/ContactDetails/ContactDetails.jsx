@@ -40,21 +40,19 @@ const ContactDetails = ({ children }) => {
               btnType={iconBtnType.delete}
               width={44}
               height={35}
+              icon={<AiOutlineDelete size={23} />}
               onBtnClick={() => {
                 deleteContact(id);
               }}
-            >
-              <AiOutlineDelete />
-            </IconButton>
+            />
           )}
           <IconButton
             btnType={iconBtnType.edit}
             width={44}
             height={35}
             onBtnClick={handleEditBtnClick}
-          >
-            <CiEdit />
-          </IconButton>
+            icon={<CiEdit size={23} />}
+          />
         </div>
         {editContact ? (
           <ContactModalForm>

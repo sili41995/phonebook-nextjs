@@ -21,7 +21,9 @@ const useSetQueryString = () => {
   );
 
   return (key, value) => {
-    router.push(`${pathname}?${createQueryString(key, value)}`);
+    router.push(`${pathname}?${createQueryString(key, value)}`, {
+      scroll: false,
+    });
   };
 };
 

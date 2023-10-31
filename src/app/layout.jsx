@@ -1,7 +1,7 @@
 import './globals.css';
 import ReduxProvider from '@/redux/ReduxProvider';
 import SharedLayout from '@/components/SharedLayout';
-// import Toast from '@/components/Toast';
+import Toast from '@/components/Toast';
 
 const RootLayout = ({ children }) => {
   return (
@@ -9,7 +9,7 @@ const RootLayout = ({ children }) => {
       <body>
         <ReduxProvider>
           <SharedLayout>{children}</SharedLayout>
-          {/* <Toast /> */}
+          <Toast />
         </ReduxProvider>
       </body>
     </html>

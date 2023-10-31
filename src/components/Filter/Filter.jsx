@@ -24,7 +24,11 @@ const Filter = () => {
   const { DESC_SORT_TYPE } = sortTypes;
   const deskSortType = searchParams.get(SORT_SP_KEY) === DESC_SORT_TYPE;
   const setQueryString = useSetQueryString();
-
+  const sortBtnIcon = deskSortType ? (
+    <BsSortAlphaDown size={28} />
+  ) : (
+    <BsSortAlphaDownAlt size={28} />
+  );
   useEffect(() => {
     if (!showFilter) {
       setQueryString(FILTER_SP_KEY, '');
@@ -65,25 +69,23 @@ const Filter = () => {
           inputWrap
           btnType={filter && iconBtnType.clearFilter}
           action={onClearFilterBtnClick}
-        >
-          {<IoMdClose />}
-        </Input>
+          btnIcon={<IoMdClose size={23} />}
+        />
       )}
       <IconButton
         btnType={iconBtnType.filter}
-        iconSize={28}
         width={44}
         onBtnClick={onFilterBtnClick}
-      >
-        <FiFilter />
-      </IconButton>
+        icon={<FiFilter size={28} />}
+      />
+
       <IconButton
         btnType={iconBtnType.filter}
-        iconSize={28}
         width={44}
         onBtnClick={onSortBtnClick}
+        icon={sortBtnIcon}
       >
-        {deskSortType ? <BsSortAlphaDown /> : <BsSortAlphaDownAlt />}
+        {}
       </IconButton>
     </div>
   );

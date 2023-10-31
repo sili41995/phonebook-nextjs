@@ -28,7 +28,7 @@ const ContactInfo = ({ children }) => {
             <Link
               href={pagesPath.contactPath}
               className={
-                currentPage === pagesPath.contactPath ? css.activeLink : false
+                currentPage === pagesPath.contactPath ? css.activeLink : ''
               }
             >
               Contact
@@ -38,7 +38,7 @@ const ContactInfo = ({ children }) => {
             <Link
               href={pagesPath.aboutPath}
               className={
-                currentPage === pagesPath.aboutPath ? css.activeLink : false
+                currentPage === pagesPath.aboutPath ? css.activeLink : ''
               }
             >
               About

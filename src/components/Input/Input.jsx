@@ -3,11 +3,11 @@ import css from './Input.module.css';
 import { formType } from '@/constants';
 
 const Input = ({
+  btnIcon,
   fieldIcon,
   settings,
   inputWrap,
   btnType,
-  children,
   action,
   right = 0,
   inputType,
@@ -41,9 +41,8 @@ const Input = ({
           height={35}
           onBtnClick={action}
           inputWrap
-        >
-          {children}
-        </IconButton>
+          icon={btnIcon}
+        />
       )}
     </div>
   );

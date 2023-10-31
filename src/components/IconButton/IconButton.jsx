@@ -2,6 +2,7 @@ import css from './IconButton.module.css';
 import { getIconButtonClassName, getIconButtonStyleProp } from '@/utils';
 
 const IconButton = ({
+  icon,
   children,
   type = 'button',
   onBtnClick,
@@ -22,7 +23,7 @@ const IconButton = ({
       type={type}
       onClick={onBtnClick}
     >
-      {children}
+      {children ? children : icon}
     </button>
   );
 };

@@ -33,6 +33,11 @@ const LoginForm = () => {
   const watchPassword = watch('password');
   const inputType = isShowPassword ? 'text' : 'password';
   const pageLink = `/${pagesPath.registerPath}`;
+  const inputPasswordBtnIcon = isShowPassword ? (
+    <AiOutlineEyeInvisible size={23} />
+  ) : (
+    <AiOutlineEye size={23} />
+  );
 
   const toggleIsShowPassword = () => {
     setIsShowPassword((prevState) => !prevState);
@@ -59,8 +64,7 @@ const LoginForm = () => {
           inputType={formType.authForm}
           autoFocus
           inputWrap
-          fieldIcon={<MdEmail />}
-          fieldIconSize={20}
+          fieldIcon={<MdEmail size={20} />}
         />
         {errors.email && toasts.errorToast('Email is required')}
         <Input
@@ -73,11 +77,10 @@ const LoginForm = () => {
           btnType={watchPassword && iconBtnType.toggleShowPassword}
           action={toggleIsShowPassword}
           inputWrap
-          fieldIcon={<AiFillLock />}
-          fieldIconSize={20}
-        >
-          {isShowPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
-        </Input>
+          fieldIcon={<AiFillLock size={20} />}
+          btnIcon={inputPasswordBtnIcon}
+        />
+
         {errors.password &&
           toasts.errorToast(
             errors.password.type === 'required'

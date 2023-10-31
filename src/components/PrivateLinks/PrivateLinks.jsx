@@ -1,3 +1,5 @@
+'use client';
+
 import { SlLogout } from 'react-icons/sl';
 import { useDispatch, useSelector } from 'react-redux';
 import { GrAddCircle } from 'react-icons/gr';
@@ -27,7 +29,9 @@ const PrivateLinks = () => {
       .unwrap()
       .then(() => {
         toasts.successToast('Goodbye!');
-        router.push(pagesPath.homePath);
+        router.push(pagesPath.homePath, {
+          scroll: false,
+        });
       });
   };
 
@@ -47,7 +51,7 @@ const PrivateLinks = () => {
         onBtnClick={onLogoutBtnClick}
       >
         <span className={css.iconWrap}>
-          <SlLogout />
+          <SlLogout size={28} />
         </span>
         Logout
       </IconButton>

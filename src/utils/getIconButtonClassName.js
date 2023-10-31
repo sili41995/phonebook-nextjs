@@ -21,10 +21,10 @@ const getIconButtonClassName = (css, btnType) => {
       return css.logout;
 
     case iconBtnType.accept:
-      return theme.colors.greenIconColor;
+      return css.accept;
 
     case iconBtnType.cancel:
-      return theme.colors.redIconColor;
+      return css.cancel;
 
     case iconBtnType.deleteTransparent:
       return css.deleteTransparent;

@@ -23,7 +23,12 @@ const UserProfile = () => {
     <div className={css.container}>
       <p className={css.name}>{name}</p>
       <div className={css.data}>
-        <Image className={css.avatar} src={userAvatar} alt='user avatar' />
+        <Image
+          className={css.avatar}
+          src={userAvatar}
+          alt='user avatar'
+          priority
+        />
         <p className={css.fullName}>{userName}</p>
         <p className={css.email}>{email}</p>
       </div>

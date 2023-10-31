@@ -61,8 +61,7 @@ const AddContactForm = () => {
           placeholder='Name'
           autoFocus
           inputWrap
-          fieldIcon={<FaUser />}
-          fieldIconSize={18}
+          fieldIcon={<FaUser size={18} />}
         />
         {errors.name && toasts.errorToast('Name is required')}
         <Input
@@ -70,8 +69,7 @@ const AddContactForm = () => {
           type='tel'
           placeholder='Phone'
           inputWrap
-          fieldIcon={<HiPhone />}
-          fieldIconSize={18}
+          fieldIcon={<HiPhone size={18} />}
         />
         {errors.number && toasts.errorToast('Phone is required')}
         <div className={css.container}>

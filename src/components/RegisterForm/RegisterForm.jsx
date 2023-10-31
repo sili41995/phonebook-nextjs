@@ -44,8 +44,7 @@ const RegisterForm = () => {
           inputType={formType.authForm}
           autoFocus
           inputWrap
-          fieldIcon={<FaUser />}
-          fieldIconSize={20}
+          fieldIcon={<FaUser size={20} />}
         />
         {errors.name && toasts.errorToast('Username is required')}
         <Input
@@ -54,8 +53,7 @@ const RegisterForm = () => {
           placeholder='Email'
           inputType={formType.authForm}
           inputWrap
-          fieldIcon={<MdEmail />}
-          fieldIconSize={20}
+          fieldIcon={<MdEmail size={20} />}
         />
         {errors.email && toasts.errorToast('Email is required')}
         <Input
@@ -66,8 +64,7 @@ const RegisterForm = () => {
           placeholder='Password'
           inputType={formType.authForm}
           inputWrap
-          fieldIcon={<AiFillLock />}
-          fieldIconSize={20}
+          fieldIcon={<AiFillLock size={20} />}
         />
         {errors.password &&
           toasts.errorToast(
