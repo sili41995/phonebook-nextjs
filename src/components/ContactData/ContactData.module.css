@@ -11,14 +11,14 @@
 
 .infoDesc {
   color: var(--secondaryFontColor);
-  font-family: Inter;
+  font-family: var(--font-inter);
   font-size: var(--primaryFontSize);
   font-weight: var(--primaryFontWeight);
 }
 
 .infoData {
   color: var(--primaryFontColor);
-  font-family: Inter;
+  font-family: var(--font-inter);
   font-size: var(--primaryFontSize);
   font-weight: var(--primaryFontWeight);
 }

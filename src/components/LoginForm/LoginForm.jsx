@@ -55,7 +55,12 @@ const LoginForm = () => {
     <>
       <h2 className={css.title}>log in</h2>
       <p className={css.message}>Welcome to Phonebook!</p>
-      <Image className={css.avatar} src={defaultAvatar} alt='user avatar' />
+      <Image
+        className={css.avatar}
+        src={defaultAvatar}
+        alt='user avatar'
+        priority
+      />
       <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         <Input
           settings={{ ...register('email', { required: true }) }}

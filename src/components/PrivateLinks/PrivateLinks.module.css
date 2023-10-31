@@ -13,7 +13,7 @@
   background-color: var(--otherLinkColor);
   padding: 12px;
   color: var(--primaryFontColor);
-  font-family: Inter;
+  font-family: var(--font-inter);
   font-size: var(--primaryFontSize);
   font-weight: var(--primaryFontWeight);
   text-decoration: none;

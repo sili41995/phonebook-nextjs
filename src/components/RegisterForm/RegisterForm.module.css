@@ -1,14 +1,14 @@
 .title {
   text-transform: uppercase;
   color: var(--primaryFontColor);
-  font-family: Inter;
+  font-family: var(--font-inter);
   font-size: var(--titleFontSize);
   font-weight: var(--primaryFontWeight);
 }
 
 .message {
   color: var(--primaryFontColor);
-  font-family: Inter;
+  font-family: var(--font-inter);
   font-size: var(--secondaryFontSize);
   font-weight: var(--primaryFontWeight);
 }
@@ -29,7 +29,7 @@
   border-radius: var(--primaryBorderRadius);
   color: #fff;
   text-align: center;
-  font-family: Inter;
+  font-family: var(--font-inter);
   font-size: var(--primaryFontSize);
   font-weight: var(--primaryFontWeight);
   line-height: 1.5;

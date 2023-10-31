@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { AiOutlineDelete } from 'react-icons/ai';
 import IconButton from '@/components/IconButton';
-import { pagesPath, iconBtnType } from '@/constants';
+import { pagesPath, iconBtnType, iconSizes } from '@/constants';
 import { getContactInfo } from '@/utils';
 import { useDeleteContact } from '@/hooks';
 import { selectIsLoading } from '@/redux/contacts/selectors';
@@ -21,7 +21,7 @@ const ContactsListItem = ({ contact }) => {
     contact && (
       <li className={css.contactItem}>
         <Link className={css.contactLink} href={path}>
-          <Image className={css.avatar} src={userAvatar} alt={name} />
+          <Image className={css.avatar} src={userAvatar} alt={name} priority />
           <div className={css.infoWrap}>
             <div>
               <p className={css.name}>{name}</p>
@@ -39,12 +39,11 @@ const ContactsListItem = ({ contact }) => {
           btnType={iconBtnType.deleteTransparent}
           width={44}
           height={35}
+          icon={<AiOutlineDelete size={iconSizes.primaryIconSize} />}
           onBtnClick={() => {
             deleteContact(id);
           }}
-        >
-          <AiOutlineDelete />
-        </IconButton>
+        ></IconButton>
       </li>
     )
   );

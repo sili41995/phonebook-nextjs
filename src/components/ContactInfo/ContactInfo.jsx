@@ -17,7 +17,7 @@ const ContactInfo = ({ children }) => {
 
   return (
     <>
-      <Image className={css.avatar} src={userAvatar} alt={`${name} photo`} />
+      <Image className={css.avatar} src={userAvatar} alt={`${name} photo`} priority />
       <div className={css.infoWrap}>
         <p className={css.name}>{name}</p>
         <p className={css.role}>{role}</p>
