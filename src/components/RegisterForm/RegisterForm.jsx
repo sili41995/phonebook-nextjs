@@ -1,18 +1,16 @@
-'use client';
-
 import { FaUser } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { AiFillLock } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import 'react-toastify/dist/ReactToastify.css';
-import { Form, Button, Message, Title } from './RegisterForm.styled';
 import { toasts } from '@/utils';
 import AuthFormMessage from '@/components/AuthFormMessage';
 import { formType, pagesPath } from '@/constants';
 import Input from '@/components/Input';
 import { registerUser } from '@/redux/auth/operations';
 import { selectIsLoading } from '@/redux/auth/selectors';
+import css from './RegisterForm.module.css';
 
 const RegisterForm = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -34,9 +32,9 @@ const RegisterForm = () => {
 
   return (
     <>
-      <Title>sign up</Title>
-      <Message>Welcome to Phonebook!</Message>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <h2 className={css.title}>sign up</h2>
+      <p className={css.message}>Welcome to Phonebook!</p>
+      <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         <Input
           settings={{ ...register('name', { required: true }) }}
           type='text'
@@ -80,10 +78,10 @@ const RegisterForm = () => {
           pageLink={pageLink}
           message={'if you have an account'}
         />
-        <Button disabled={isLoading} type='submit'>
+        <button className={css.button} disabled={isLoading} type='submit'>
           Enlist
-        </Button>
-      </Form>
+        </button>
+      </form>
     </>
   );
 };
