@@ -33,6 +33,10 @@
   align-items: center;
 }
 
+.infoWrap div {
+  flex-basis: calc((100% - var(--primaryGap) * 2) / 3);
+}
+
 .name {
   color: var(--primaryFontColor);
   font-family: Inter;
