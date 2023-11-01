@@ -83,3 +83,7 @@ img {
 button {
   cursor: pointer;
 }
+
+body:has(.authContainer) {
+  background-color: var(--authPageBackgroundColor);
+}

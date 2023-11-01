@@ -5,16 +5,20 @@ import Navigation from '@/components/Navigation';
 import { refreshUser } from '@/redux/auth/operations';
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { setAuthPageBackgroundColor, getContainerClassName } from '@/utils';
+import { getContainerClassName, getIsAuthPage } from '@/utils';
 import { selectIsRefreshing } from '@/redux/auth/selectors';
 import css from './SharedLayout.module.css';
 
 const SharedLayout = ({ children }) => {
   const dispatch = useDispatch();
   const pathname = usePathname();
+  const isAuthPage = getIsAuthPage(pathname);
   const isRefreshing = useSelector(selectIsRefreshing);
-  const containerClassName = getContainerClassName(css, pathname);
-  setAuthPageBackgroundColor(pathname);
+  const containerClassName = getContainerClassName({
+    css,
+    pathname,
+    isAuthPage,
+  });
 
   useEffect(() => {
     dispatch(refreshUser());

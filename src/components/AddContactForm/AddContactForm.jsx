@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 import IconButton from '@/components/IconButton';
 import Input from '@/components/Input';
-import { toasts } from '@/utils';
+import { makeBlur, toasts } from '@/utils';
 import { iconBtnType, iconSizes } from '@/constants';
 import { selectContacts, selectIsLoading } from '@/redux/contacts/selectors';
 import { useRouter } from 'next/navigation';
@@ -31,6 +31,10 @@ const AddContactForm = () => {
 
   const onCancelBtnClick = () => {
     router.back();
+  };
+
+  const onAcceptBtnClick = ({ currentTarget }) => {
+    makeBlur(currentTarget);
   };
 
   const handleFormSubmit = (data) => {
@@ -79,6 +83,7 @@ const AddContactForm = () => {
             width={44}
             height={35}
             type='submit'
+            onBtnClick={onAcceptBtnClick}
           >
             <GiCheckMark />
           </IconButton>

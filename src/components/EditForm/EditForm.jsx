@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import 'react-toastify/dist/ReactToastify.css';
 import IconButton from '@/components/IconButton';
 import Input from '@/components/Input';
-import { getContactInfo, toasts } from '@/utils';
+import { getContactInfo, makeBlur, toasts } from '@/utils';
 import { useTargetContact } from '@/hooks';
 import { pagesPath, iconBtnType, iconSizes } from '@/constants';
 import { updateContact } from '@/redux/contacts/operations';
@@ -36,6 +36,10 @@ const EditForm = ({ setEditContact }) => {
       .catch(() => {
         toasts.errorToast('Contact update failed');
       });
+  };
+
+  const onAcceptBtnClick = ({ currentTarget }) => {
+    makeBlur(currentTarget);
   };
 
   return (
@@ -68,6 +72,7 @@ const EditForm = ({ setEditContact }) => {
             height={35}
             type='submit'
             icon={<GiCheckMark size={iconSizes.primaryIconSize} />}
+            onBtnClick={onAcceptBtnClick}
           />
           <IconButton
             btnType={iconBtnType.cancel}
