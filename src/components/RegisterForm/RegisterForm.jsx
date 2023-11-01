@@ -1,8 +1,6 @@
 'use client';
 
-import { FaUser } from 'react-icons/fa';
-import { MdEmail } from 'react-icons/md';
-import { AiFillLock } from 'react-icons/ai';
+import { MdEmail, MdLock, MdPerson } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import 'react-toastify/dist/ReactToastify.css';
@@ -44,7 +42,7 @@ const RegisterForm = () => {
           inputType={formType.authForm}
           autoFocus
           inputWrap
-          fieldIcon={<FaUser size={iconSizes.secondaryIconSize} />}
+          fieldIcon={<MdPerson size={iconSizes.secondaryIconSize} />}
         />
         {errors.name && toasts.errorToast('Username is required')}
         <Input
@@ -64,7 +62,7 @@ const RegisterForm = () => {
           placeholder='Password'
           inputType={formType.authForm}
           inputWrap
-          fieldIcon={<AiFillLock size={iconSizes.secondaryIconSize} />}
+          fieldIcon={<MdLock size={iconSizes.secondaryIconSize} />}
         />
         {errors.password &&
           toasts.errorToast(

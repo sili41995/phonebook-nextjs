@@ -1,16 +1,11 @@
 'use client';
 
-import {
-  AiFillLock,
-  AiOutlineEye,
-  AiOutlineEyeInvisible,
-} from 'react-icons/ai';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import AuthFormMessage from '@/components/AuthFormMessage';
 import Input from '@/components/Input';
 import { formType, iconBtnType, iconSizes, pagesPath } from '@/constants';
-import { MdEmail } from 'react-icons/md';
+import { MdEmail, MdLock, MdVisibility, MdVisibilityOff } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 import defaultAvatar from '@/images/default-signin-avatar.png';
@@ -34,9 +29,9 @@ const LoginForm = () => {
   const inputType = isShowPassword ? 'text' : 'password';
   const pageLink = `/${pagesPath.registerPath}`;
   const inputPasswordBtnIcon = isShowPassword ? (
-    <AiOutlineEyeInvisible size={iconSizes.primaryIconSize} />
+    <MdVisibilityOff size={iconSizes.primaryIconSize} />
   ) : (
-    <AiOutlineEye size={iconSizes.primaryIconSize} />
+    <MdVisibility size={iconSizes.primaryIconSize} />
   );
 
   const toggleIsShowPassword = () => {
@@ -82,7 +77,7 @@ const LoginForm = () => {
           btnType={watchPassword && iconBtnType.toggleShowPassword}
           action={toggleIsShowPassword}
           inputWrap
-          fieldIcon={<AiFillLock size={iconSizes.secondaryIconSize} />}
+          fieldIcon={<MdLock size={iconSizes.secondaryIconSize} />}
           btnIcon={inputPasswordBtnIcon}
         />
 
