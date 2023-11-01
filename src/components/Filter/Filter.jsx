@@ -85,9 +85,7 @@ const Filter = () => {
         width={44}
         onBtnClick={onSortBtnClick}
         icon={sortBtnIcon}
-      >
-        {}
-      </IconButton>
+      />
     </div>
   );
 };

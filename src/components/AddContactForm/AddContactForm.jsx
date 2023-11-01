@@ -84,9 +84,8 @@ const AddContactForm = () => {
             height={35}
             type='submit'
             onBtnClick={onAcceptBtnClick}
-          >
-            <GiCheckMark />
-          </IconButton>
+            icon={<GiCheckMark size={iconSizes.primaryIconSize} />}
+          />
           <IconButton onBtnClick={onCancelBtnClick}>Cancel</IconButton>
         </div>
       </form>

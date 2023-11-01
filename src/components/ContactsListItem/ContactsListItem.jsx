@@ -43,7 +43,7 @@ const ContactsListItem = ({ contact }) => {
           onBtnClick={() => {
             deleteContact(id);
           }}
-        ></IconButton>
+        />
       </li>
     )
   );
