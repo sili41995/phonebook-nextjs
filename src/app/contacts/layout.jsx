@@ -5,6 +5,7 @@ import UserProfile from '@/components/UserProfile';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchContacts } from '@/redux/contacts/operations';
+import PrivateRoute from '@/components/PrivateRoute';
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();
@@ -18,11 +19,11 @@ const Layout = ({ children }) => {
   }, [dispatch]);
 
   return (
-    <>
+    <PrivateRoute>
       <UserProfile />
       <ContactsList />
       {children}
-    </>
+    </PrivateRoute>
   );
 };
 

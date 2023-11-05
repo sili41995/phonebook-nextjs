@@ -1,5 +1,6 @@
 import AuthForm from '@/components/AuthForm';
 import RegisterForm from '@/components/RegisterForm';
+import RestrictedRoute from '@/components/RestrictedRoute';
 
 export const metadata = {
   title: 'Register',
@@ -7,9 +8,11 @@ export const metadata = {
 };
 
 const RegisterPage = () => (
-  <AuthForm>
-    <RegisterForm />
-  </AuthForm>
+  <RestrictedRoute>
+    <AuthForm>
+      <RegisterForm />
+    </AuthForm>
+  </RestrictedRoute>
 );
 
 export default RegisterPage;

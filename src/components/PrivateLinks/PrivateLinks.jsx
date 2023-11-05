@@ -11,7 +11,7 @@ import { pagesPath, iconBtnType, iconSizes } from '@/constants';
 import { selectContacts } from '@/redux/contacts/selectors';
 import { logoutUser } from '@/redux/auth/operations';
 import Filter from '@/components/Filter';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import css from './PrivateLinks.module.css';
 
@@ -19,7 +19,8 @@ const PrivateLinks = () => {
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
   const pathname = usePathname();
-  const path = `/${pagesPath.addNewContactPath}`;
+  const searchParams = useSearchParams();
+  const addNewContactPath = `/${pagesPath.addNewContactPath}?${searchParams}`;
   const isShowFilter = isContactsPage(pathname) && !!contacts.length;
   const router = useRouter();
 
@@ -38,7 +39,7 @@ const PrivateLinks = () => {
   return (
     <div className={css.container}>
       {isShowFilter && <Filter />}
-      <Link href={path}>
+      <Link href={addNewContactPath}>
         <span className={css.iconWrap}>
           <GrAddCircle />
         </span>

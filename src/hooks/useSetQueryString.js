@@ -2,7 +2,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useCallback } from 'react';
 
 const useSetQueryString = () => {
-  const router = useRouter();
+  const { replace } = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -21,7 +21,7 @@ const useSetQueryString = () => {
   );
 
   return (key, value) => {
-    router.push(`${pathname}?${createQueryString(key, value)}`, {
+    replace(`${pathname}?${createQueryString(key, value)}`, {
       scroll: false,
     });
   };

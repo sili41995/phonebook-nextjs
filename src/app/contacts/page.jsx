@@ -1,4 +1,7 @@
-'use client';
+export const metadata = {
+  title: 'Contacts',
+  description: 'Page of contacts',
+};
 
 const ContactsPage = () => {};
 

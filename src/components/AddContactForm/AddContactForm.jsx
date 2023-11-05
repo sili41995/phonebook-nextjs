@@ -26,8 +26,6 @@ const AddContactForm = () => {
     handleSubmit,
     reset,
   } = useForm();
-  // const location = useLocation();
-  // const goBackLink = location.state?.from || '/';
 
   const onCancelBtnClick = () => {
     router.back();
