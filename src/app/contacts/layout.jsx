@@ -1,11 +1,11 @@
 'use client';
 
-import ContactsList from '@/components/ContactsList';
-import UserProfile from '@/components/UserProfile';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchContacts } from '@/redux/contacts/operations';
 import PrivateRoute from '@/components/PrivateRoute';
+// import ContactsList from '@/components/ContactsList';
+// import UserProfile from '@/components/UserProfile';
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();
@@ -20,8 +20,8 @@ const Layout = ({ children }) => {
 
   return (
     <PrivateRoute>
-      <UserProfile />
-      <ContactsList />
+      {/* <UserProfile /> */}
+      {/* <ContactsList /> */}
       {children}
     </PrivateRoute>
   );
