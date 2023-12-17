@@ -5,7 +5,7 @@ import { IProps } from './ModalForm.types';
 import { Container } from './ModalForm.styled';
 
 const ModalForm: FC<IProps> = ({ children, formType }) => (
-  <Container formType={formType}>{children}</Container>
+  <Container {...{ formType }}>{children}</Container>
 );
 
 export default ModalForm;

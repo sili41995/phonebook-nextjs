@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-import { IStyledProps } from './GoBackLink.types';
 
 export const StyledLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: ${({ height }: IStyledProps) => (height ? `${height}px` : '')};
+  height: ${({ height }: any) => (height ? `${height}px` : '')};
   padding: ${({ theme }) => theme.spacing()};
   background-color: ${({ theme }) => theme.colors.btnBackgroundColor};
   border-radius: ${({ theme }) =>

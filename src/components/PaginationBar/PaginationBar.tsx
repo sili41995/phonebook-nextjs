@@ -71,12 +71,7 @@ const PaginationBar: FC<IProps> = ({ itemsQuantity, quantity, step = 1 }) => {
       )}
       {isValidPage &&
         pageNumbers.map((number) => (
-          <Item
-            key={number}
-            page={number}
-            currentPage={currentPage}
-            step={step}
-          >
+          <Item key={number} {...{ page: number, currentPage, step }}>
             <Button
               className={number === currentPage ? 'active' : ''}
               onClick={(e) => {

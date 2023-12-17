@@ -8,7 +8,7 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-  display: ${({ currentPage, page, step }: IStyledProps) =>
+  display: ${({ currentPage, page, step }: any) =>
     setBtnDisplayProp({ currentPage, page, step })};
 `;
 

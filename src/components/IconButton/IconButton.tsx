@@ -14,9 +14,7 @@ const IconButton = ({
 }: IProps) => (
   <Button
     type={type}
-    right={right}
-    top={top}
-    width={width}
+    {...{ right, top, width }}
     onClick={onBtnClick}
     {...props}
   >

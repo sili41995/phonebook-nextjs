@@ -8,7 +8,7 @@ export const Link = styled.a`
   align-items: center;
   width: 44px;
   height: 36px;
-  background-color: ${({ btnType }: IStyledProps) => setButtonColor(btnType)};
+  background-color: ${({ btnType }: any) => setButtonColor(btnType)};
   border-radius: ${({ theme }) =>
     `${theme.borderRadius.secondaryBorderRadius}px`};
   transition: box-shadow ${({ theme }) => theme.transitionDurationAndFunc};
@@ -17,6 +17,6 @@ export const Link = styled.a`
     box-shadow: ${({ theme }) => theme.shadows.primaryShadow};
   }
   & svg {
-    color: ${({ btnType }) => setIconFill(btnType)};
+    color: ${({ btnType }: any) => setIconFill(btnType)};
   }
 `;

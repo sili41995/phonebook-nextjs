@@ -4,20 +4,18 @@ import styled from 'styled-components';
 
 export const Button = styled.button`
   z-index: 10;
-  position: ${({ position }: IStyledProps) => position};
-  top: ${({ top }: IStyledProps) => (top === 'center' ? '50%' : `${top}px`)};
-  right: ${({ right }: IStyledProps) => `${right}px`};
-  transform: translateY(
-    ${({ top }: IStyledProps) => (top === 'center' ? '-50%' : '')}
-  );
+  position: ${({ position }: any) => position};
+  top: ${({ top }: any) => (top === 'center' ? '50%' : `${top}px`)};
+  right: ${({ right }: any) => `${right}px`};
+  transform: translateY(${({ top }: any) => (top === 'center' ? '-50%' : '')});
   display: flex;
   gap: ${({ theme }) => `${theme.primaryGap}px`};
   justify-content: center;
   align-items: center;
-  min-width: ${({ width }: IStyledProps) => `${width}px`};
-  height: ${({ height }: IStyledProps) => (height ? `${height}px` : '')};
+  min-width: ${({ width }: any) => `${width}px`};
+  height: ${({ height }: any) => (height ? `${height}px` : '')};
   padding: ${({ theme }) => theme.spacing()};
-  background-color: ${({ btnType }: IStyledProps) => setButtonColor(btnType)};
+  background-color: ${({ btnType }: any) => setButtonColor(btnType)};
   border-color: transparent;
   border-radius: ${({ theme }) =>
     `${theme.borderRadius.secondaryBorderRadius}px`};
@@ -28,16 +26,16 @@ export const Button = styled.button`
   transition: box-shadow ${({ theme }) => theme.transitionDurationAndFunc};
   &:hover,
   &:focus {
-    box-shadow: ${({ theme, inputWrap }: IStyledProps) =>
+    box-shadow: ${({ theme, inputWrap }: any) =>
       !inputWrap && theme.shadows.primaryShadow};
   }
   & svg {
-    color: ${({ btnType }: IStyledProps) => setIconFill(btnType)};
+    color: ${({ btnType }: any) => setIconFill(btnType)};
     transition: color ${({ theme }) => theme.transitionDurationAndFunc};
   }
   & svg:hover,
   & svg:focus {
-    color: ${({ btnType, inputWrap }: IStyledProps) =>
+    color: ${({ btnType, inputWrap }: any) =>
       inputWrap && setIconHoverEffect(btnType)};
   }
 `;
