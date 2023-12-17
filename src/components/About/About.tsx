@@ -8,8 +8,8 @@ const About: FC = () => (
     employers. A server application was developed to securely store information.
     This application was developed without the Axios to improve skills in
     working with HTTP requests. Because under the hood of the Redux Toolkit is
-    Immer - we can freely "mutate" the state, and Immer will do it right to keep
-    us updated.
+    Immer - we can freely &quot;mutate&quot; the state, and Immer will do it
+    right to keep us updated.
   </Message>
 );
 
