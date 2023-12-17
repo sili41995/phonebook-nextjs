@@ -1,8 +1,6 @@
 import ContactDetails from '@/components/ContactDetails';
 import React from 'react';
 
-const page = () => {
-  return <ContactDetails />;
-};
+const page = () => <ContactDetails />;
 
 export default page;

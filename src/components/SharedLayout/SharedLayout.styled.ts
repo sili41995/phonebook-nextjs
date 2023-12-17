@@ -11,10 +11,6 @@ export const Header = styled.header`
 
 export const Container = styled.div`
   width: 1200px;
-  display: ${({ isContactsPage }: IStyledProps) =>
-    isContactsPage ? 'flex' : 'block'};
-  gap: ${({ isContactsPage, theme }: IStyledProps) =>
-    isContactsPage ? `${theme.primaryGap}px` : 0};
   padding-left: ${({ theme }) => `${theme.padding.paddingContainer}px`};
   padding-right: ${({ theme }) => `${theme.padding.paddingContainer}px`};
   margin-left: auto;

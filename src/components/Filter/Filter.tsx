@@ -7,7 +7,7 @@ import {
   FaTimes,
 } from 'react-icons/fa';
 import useSetQueryString from '@/hooks/useSetQueryString';
-import { makeBlur, updateSortSearchParams } from '@/utils';
+import { makeBlur } from '@/utils';
 import IconButton from '@/components/IconButton';
 import Input from '@/components/Input';
 import {

@@ -1,5 +1,5 @@
 import AddContactForm from '@/components/AddContactForm';
-import ContactModalForm from '@/components/ContactModalForm';
+import ModalForm from '@/components/ModalForm';
 import React from 'react';
 
 export const metadata = {
@@ -9,9 +9,9 @@ export const metadata = {
 
 const AddContact = () => {
   return (
-    <ContactModalForm>
+    <ModalForm>
       <AddContactForm />
-    </ContactModalForm>
+    </ModalForm>
   );
 };
 

@@ -4,7 +4,7 @@ import { useAppSelector } from '@/hooks/redux';
 import { IProps } from './PrivateRoute.types';
 import { PagePaths } from '@/constants';
 
-const PrivateRoute = ({ element }: IProps) => {
+const PrivateRoute = ({ children }: IProps) => {
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
   const isRefreshing = useAppSelector(selectIsRefreshing);
   const shouldRedirect = !isLoggedIn && !isRefreshing;
@@ -13,7 +13,7 @@ const PrivateRoute = ({ element }: IProps) => {
   if (shouldRedirect) {
     redirect(homePath);
   } else {
-    return element;
+    return children;
   }
 };
 

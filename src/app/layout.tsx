@@ -17,15 +17,15 @@ export default function RootLayout({
   return (
     <html lang='en' className={`${inter.variable} ${jua.variable}`}>
       <body>
-        <StyledComponentsRegistry>
-          <ThemeProvider theme={theme}>
-            <ReduxProvider>
+        <ThemeProvider theme={theme}>
+          <ReduxProvider>
+            <StyledComponentsRegistry>
               <SharedLayout>{children}</SharedLayout>
-              <Toast />
-              <GlobalStyles />
-            </ReduxProvider>
-          </ThemeProvider>
-        </StyledComponentsRegistry>
+            </StyledComponentsRegistry>
+            <Toast />
+            <GlobalStyles />
+          </ReduxProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
