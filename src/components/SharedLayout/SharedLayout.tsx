@@ -5,7 +5,7 @@ import Loader from '@/components/Loader';
 import { refreshUser } from '@/redux/auth/operations';
 import { FC, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { selectIsRefreshing } from '@/redux/auth/selectors';
+import { selectIsRefreshing, selectToken } from '@/redux/auth/selectors';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { IProps } from './SharedLayout.types';
 import { Container, Header, Main, Section } from './SharedLayout.styled';
@@ -17,6 +17,7 @@ const SharedLayout: FC<IProps> = ({ children }) => {
   const pathname = usePathname();
   const isRefreshing = useAppSelector(selectIsRefreshing);
   const isContactsPage = getIsContactsPage(pathname);
+  const token = useAppSelector(selectToken);
   const style = {
     display: isContactsPage ? 'flex' : 'block',
     gap: isContactsPage ? `${theme.primaryGap}px` : 0,
@@ -24,7 +25,7 @@ const SharedLayout: FC<IProps> = ({ children }) => {
 
   useEffect(() => {
     dispatch(refreshUser());
-  }, [dispatch]);
+  }, [dispatch, token]);
 
   return isRefreshing ? (
     <Loader />

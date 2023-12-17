@@ -2,6 +2,7 @@
 
 import { ReactNode, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { selectToken } from '@/redux/auth/selectors';
 import { fetchContacts } from '@/redux/contacts/operations';
 import PrivateRoute from '@/components/PrivateRoute';
 import Loader from '@/components/Loader';
@@ -20,6 +21,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   const [fetchUserStatus, setFetchUserStatus] = useState<FetchStatuses>(
     () => idle
   );
+  const token = useAppSelector(selectToken);
   const dispatch = useAppDispatch();
   const isLoadedContacts = useAppSelector(selectIsLoaded);
   const isLoadingUser = fetchUserStatus === pending;
@@ -41,14 +43,14 @@ const Layout = ({ children }: { children: ReactNode }) => {
         setFetchUserStatus(resolved);
       } catch (error) {
         if (error instanceof Error) {
-          toasts.errorToast(error.message);
+          !error.message.includes('jwt') && toasts.errorToast(error.message);
           setFetchUserStatus(rejected);
         }
       }
     };
 
     getUser();
-  }, []);
+  }, [token]);
 
   return isLoading ? (
     <Loader />
