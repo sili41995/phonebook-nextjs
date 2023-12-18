@@ -1,4 +1,3 @@
-import { revalidatePath, revalidateTag } from 'next/cache';
 import { ChangeEvent, RefObject } from 'react';
 
 interface IFuncProps {
