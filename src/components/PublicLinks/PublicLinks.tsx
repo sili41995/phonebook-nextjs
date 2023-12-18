@@ -12,7 +12,7 @@ const PublicLinks = () => {
         <Link href={signUpPagePath}>Sign up</Link>
       </ListItem>
       <ListItem>
-        <Link href={signInPagePath}>Log in</Link>
+        <Link href={signInPagePath}>Sign in</Link>
       </ListItem>
     </List>
   );

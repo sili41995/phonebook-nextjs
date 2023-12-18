@@ -52,9 +52,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
     getUser();
   }, [token]);
 
-  return isLoading ? (
-    <Loader />
-  ) : (
+  return (
     <PrivateRoute>
       <>
         <UserProfile user={user} />

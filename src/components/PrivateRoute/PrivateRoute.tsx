@@ -12,9 +12,9 @@ const PrivateRoute = ({ children }: IProps) => {
 
   if (shouldRedirect) {
     redirect(homePath);
-  } else {
-    return children;
   }
+
+  return children;
 };
 
 export default PrivateRoute;

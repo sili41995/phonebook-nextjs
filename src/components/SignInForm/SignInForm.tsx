@@ -20,7 +20,8 @@ import {
   InputTypes,
   PagePaths,
 } from '@/constants';
-import { Form, Message, Title } from './SignInForm.styled';
+import defaultAvatar from '@/images/default-signin-avatar.png';
+import { Form, Img, Message, Title } from './SignInForm.styled';
 
 const SignInForm = () => {
   const user = useAppSelector(selectUser);
@@ -94,6 +95,12 @@ const SignInForm = () => {
     <>
       <Title>sign in</Title>
       <Message>{greetings}</Message>
+      <Img
+        src={user.avatar ?? defaultAvatar}
+        alt='user avatar'
+        width={150}
+        height={150}
+      />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Input
           settings={{ ...register('email', { required: true }) }}
