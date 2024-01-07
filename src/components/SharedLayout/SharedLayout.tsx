@@ -10,7 +10,6 @@ import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { IProps } from './SharedLayout.types';
 import { Container, Header, Main, Section } from './SharedLayout.styled';
 import { getIsContactsPage } from '@/utils';
-import { theme } from '@/constants';
 
 const SharedLayout: FC<IProps> = ({ children }) => {
   const dispatch = useAppDispatch();
@@ -18,10 +17,6 @@ const SharedLayout: FC<IProps> = ({ children }) => {
   const isRefreshing = useAppSelector(selectIsRefreshing);
   const isContactsPage = getIsContactsPage(pathname);
   const token = useAppSelector(selectToken);
-  const style = {
-    display: isContactsPage ? 'flex' : 'block',
-    gap: isContactsPage ? `${theme.primaryGap}px` : 0,
-  };
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -38,7 +33,7 @@ const SharedLayout: FC<IProps> = ({ children }) => {
       </Header>
       <Main>
         <Section>
-          <Container style={style}>{children}</Container>
+          <Container $isContactsPage={isContactsPage}>{children}</Container>
         </Section>
       </Main>
     </>

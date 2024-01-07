@@ -8,5 +8,5 @@ export interface IProps {
 }
 
 export interface IStyledProps {
-  btnType?: IconBtnType;
+  $btnType?: IconBtnType;
 }

@@ -24,27 +24,24 @@ export const Container = styled.div`
   }
 `;
 
-export const StyledInput = styled.input`
+export const StyledInput = styled.input<IStyledProps>`
   width: 100%;
-  max-width: ${({ formType }: IStyledProps) => setInputMaxWidth(formType)};
-  height: ${({ formType }: IStyledProps) => setInputHeight(formType)};
+  max-width: ${({ $formType }) => setInputMaxWidth($formType)};
+  height: ${({ $formType }) => setInputHeight($formType)};
   background-color: transparent;
-  border: 1px solid
-    ${({ formType }: IStyledProps) => setInputBorderColor(formType)};
-  border-radius: ${({ formType }: IStyledProps) =>
-    setInputBorderRadius(formType)};
-  filter: ${({ formType }: IStyledProps) => setInputFilter(formType)};
-  padding: ${({ formType }: IStyledProps) => setInputPadding(formType)};
+  border: 1px solid ${({ $formType }) => setInputBorderColor($formType)};
+  border-radius: ${({ $formType }) => setInputBorderRadius($formType)};
+  filter: ${({ $formType }) => setInputFilter($formType)};
+  padding: ${({ $formType }) => setInputPadding($formType)};
   font-family: var(--font-inter);
-  color: ${({ formType }: IStyledProps) => setInputFontColor(formType)};
+  color: ${({ $formType }) => setInputFontColor($formType)};
   font-weight: ${({ theme }) => theme.fontWeight.primaryFontWeight};
-  font-size: ${({ formType }: IStyledProps) => setInputFontSize(formType)};
+  font-size: ${({ $formType }) => setInputFontSize($formType)};
   letter-spacing: 0.04em;
   transition: border-color ${({ theme }) => theme.transitionDurationAndFunc};
   &:focus {
     outline: none;
-    border-color: ${({ formType }: IStyledProps) =>
-      setInputHoverEffect(formType)};
+    border-color: ${({ $formType }) => setInputHoverEffect($formType)};
   }
   &:focus + svg {
     transition: color ${({ theme }) => theme.transitionDurationAndFunc};
@@ -52,7 +49,7 @@ export const StyledInput = styled.input`
   }
 `;
 
-export const Label = styled.label`
+export const Label = styled.label<IStyledProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,17 +58,16 @@ export const Label = styled.label`
     transform: scale(0);
   }
   &:has([type='checkbox']) svg {
-    width: ${({ formType }: IStyledProps) => setInputHeight(formType)};
+    width: ${({ $formType }) => setInputHeight($formType)};
     height: 100%;
     padding: ${({ theme }) => theme.spacing(2)};
     border: 1px solid;
-    border-color: ${({ formType, checked }: IStyledProps) =>
-      checked ? 'transparent' : setInputBorderColor(formType)};
-    border-radius: ${({ formType }: IStyledProps) =>
-      setInputBorderRadius(formType)};
-    background-color: ${({ theme, checked }: IStyledProps) =>
+    border-color: ${({ $formType, checked }) =>
+      checked ? 'transparent' : setInputBorderColor($formType)};
+    border-radius: ${({ $formType }) => setInputBorderRadius($formType)};
+    background-color: ${({ theme, checked }) =>
       checked ? theme.colors.otherColor : 'transparent'};
-    color: ${({ theme, checked }: IStyledProps) =>
+    color: ${({ theme, checked }) =>
       checked ? theme.colors.whiteColor : 'transparent'};
     cursor: pointer;
     transition: box-shadow ${({ theme }) => theme.transitionDurationAndFunc},

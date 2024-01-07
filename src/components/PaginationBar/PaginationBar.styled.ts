@@ -7,9 +7,9 @@ export const List = styled.ul`
   justify-content: space-between;
 `;
 
-export const Item = styled.li`
-  display: ${({ currentPage, page, step }: any) =>
-    setBtnDisplayProp({ currentPage, page, step })};
+export const Item = styled.li<IStyledProps>`
+  display: ${({ $currentPage, $page, step }) =>
+    setBtnDisplayProp({ $currentPage, $page, step })};
 `;
 
 export const TemplateItem = styled.li`

@@ -100,6 +100,7 @@ const SignInForm = () => {
         alt='user avatar'
         width={150}
         height={150}
+        priority
       />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Input

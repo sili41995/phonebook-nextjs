@@ -14,15 +14,22 @@ const Input: FC<IProps> = ({
   icon,
   altElem,
   checked,
+  formType,
   ...otherProps
 }) => {
   const input = (
-    <StyledInput type={type} {...{ checked }} {...settings} {...otherProps} />
+    <StyledInput
+      type={type}
+      checked={checked}
+      $formType={formType}
+      {...settings}
+      {...otherProps}
+    />
   );
 
   if (type === InputTypes.file || type === InputTypes.checkbox) {
     return (
-      <Label {...{ checked }}>
+      <Label checked={checked}>
         {altElem}
         {input}
       </Label>

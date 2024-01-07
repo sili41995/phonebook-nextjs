@@ -103,7 +103,14 @@ const SignUpForm = () => {
           accept='image/png, image/jpeg, image/jpg'
           onChange={onChangeInput}
           type={InputTypes.file}
-          altElem={<Img src={image} alt='profile avatar' ref={userAvatarRef} />}
+          altElem={
+            <Img
+              src={image}
+              alt='profile avatar'
+              ref={userAvatarRef}
+              priority
+            />
+          }
         />
         <Input
           settings={{ ...register('name', { required: true }) }}

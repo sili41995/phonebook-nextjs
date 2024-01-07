@@ -1,21 +1,21 @@
+import styled from 'styled-components';
 import { setButtonColor, setIconFill, setIconHoverEffect } from '@/utils';
 import { IStyledProps } from './IconButton.types';
-import styled from 'styled-components';
 
-export const Button = styled.button`
+export const Button = styled.button<IStyledProps>`
   z-index: 10;
-  position: ${({ position }: any) => position};
-  top: ${({ top }: any) => (top === 'center' ? '50%' : `${top}px`)};
-  right: ${({ right }: any) => `${right}px`};
-  transform: translateY(${({ top }: any) => (top === 'center' ? '-50%' : '')});
+  position: ${({ $position }) => $position};
+  top: ${({ $top }) => ($top === 'center' ? '50%' : `${$top}px`)};
+  right: ${({ $right }) => `${$right}px`};
+  transform: translateY(${({ $top }) => ($top === 'center' ? '-50%' : '')});
   display: flex;
   gap: ${({ theme }) => `${theme.primaryGap}px`};
   justify-content: center;
   align-items: center;
-  min-width: ${({ width }: any) => `${width}px`};
-  height: ${({ height }: any) => (height ? `${height}px` : '')};
+  min-width: ${({ width }) => `${width}px`};
+  height: ${({ height }) => (height ? `${height}px` : '')};
   padding: ${({ theme }) => theme.spacing()};
-  background-color: ${({ btnType }: any) => setButtonColor(btnType)};
+  background-color: ${({ $btnType }) => setButtonColor($btnType)};
   border-color: transparent;
   border-radius: ${({ theme }) =>
     `${theme.borderRadius.secondaryBorderRadius}px`};
@@ -26,16 +26,16 @@ export const Button = styled.button`
   transition: box-shadow ${({ theme }) => theme.transitionDurationAndFunc};
   &:hover,
   &:focus {
-    box-shadow: ${({ theme, inputWrap }: any) =>
-      !inputWrap && theme.shadows.primaryShadow};
+    box-shadow: ${({ theme, $inputWrap }) =>
+      !$inputWrap && theme.shadows.primaryShadow};
   }
   & svg {
-    color: ${({ btnType }: any) => setIconFill(btnType)};
+    color: ${({ $btnType }) => setIconFill($btnType)};
     transition: color ${({ theme }) => theme.transitionDurationAndFunc};
   }
   & svg:hover,
   & svg:focus {
-    color: ${({ btnType, inputWrap }: any) =>
-      inputWrap && setIconHoverEffect(btnType)};
+    color: ${({ $btnType, $inputWrap }) =>
+      $inputWrap && setIconHoverEffect($btnType)};
   }
 `;

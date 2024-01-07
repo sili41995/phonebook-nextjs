@@ -1,5 +1,3 @@
-import { DefaultTheme } from 'styled-components';
-
 export interface IProps {
   quantity: number;
   step?: number;
@@ -7,8 +5,7 @@ export interface IProps {
 }
 
 export interface IStyledProps {
-  currentPage: number;
-  page: number;
-  step: number;
-  theme: DefaultTheme;
+  $currentPage?: number;
+  $page?: number;
+  step?: number;
 }

@@ -10,12 +10,20 @@ const IconButton = ({
   width = 44,
   top = 0,
   right = 0,
+  btnType,
+  position,
+  inputWrap,
   ...props
 }: IProps) => (
   <Button
     type={type}
-    {...{ right, top, width }}
+    $right={right}
+    $top={top}
+    width={width}
     onClick={onBtnClick}
+    $btnType={btnType}
+    $position={position}
+    $inputWrap={inputWrap}
     {...props}
   >
     {title ? (

@@ -9,7 +9,7 @@ const GoBackLink: FC<IProps> = ({ title = 'Go Back', height }) => {
 
   return (
     <StyledLink
-      {...{ height }}
+      height={height}
       href={`/${PagePaths.contactsPath}?${searchParams}`}
     >
       {title}

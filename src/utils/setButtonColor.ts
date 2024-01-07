@@ -1,6 +1,6 @@
 import { IconBtnType, theme } from '@/constants';
 
-function setButtonColor(btnType: IconBtnType): string {
+function setButtonColor(btnType: IconBtnType | undefined): string {
   switch (btnType) {
     case IconBtnType.delete:
       return theme.colors.redBtnColor;

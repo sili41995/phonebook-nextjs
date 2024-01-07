@@ -1,6 +1,5 @@
 import { ChangeEvent, ReactElement } from 'react';
 import { FormTypes, InputTypes, IconBtnType } from '@/constants';
-import { DefaultTheme } from 'styled-components/dist/types';
 
 export interface IProps {
   settings?: object;
@@ -22,7 +21,6 @@ export interface IProps {
 }
 
 export interface IStyledProps {
-  theme: DefaultTheme;
-  formType?: FormTypes;
+  $formType?: FormTypes;
   checked?: boolean;
 }

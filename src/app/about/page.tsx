@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import About from '@/components/About';
 
 export const metadata = {
@@ -5,7 +6,7 @@ export const metadata = {
   description: 'Page about project Phonebook',
 };
 
-const AboutPage = () => {
+const AboutPage: FC = () => {
   return <About />;
 };
 

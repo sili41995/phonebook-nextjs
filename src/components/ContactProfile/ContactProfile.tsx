@@ -17,9 +17,6 @@ import {
   ContactName,
   ContactTitle,
   Image,
-  ListItem,
-  NavBar,
-  NavList,
   ImageContainer,
 } from './ContactProfile.styled';
 

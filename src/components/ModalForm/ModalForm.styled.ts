@@ -9,17 +9,15 @@ import {
   setModalFormWidth,
 } from '@/utils';
 
-export const Container = styled.div`
+export const Container = styled.div<IStyledProps>`
   display: flex;
-  width: ${({ formType }: IStyledProps) => setModalFormWidth(formType)};
+  width: ${({ $formType }) => setModalFormWidth($formType)};
   flex-direction: column;
   gap: ${({ theme }) => `${theme.primaryGap}px`};
-  padding: ${({ formType }: IStyledProps) => setModalFormPadding(formType)};
-  background-color: ${({ formType }: IStyledProps) =>
-    setModalFormBackgroundColor(formType)};
-  border-radius: ${({ formType }: IStyledProps) =>
-    setModalFormBorderRadius(formType)};
-  box-shadow: ${({ formType }: IStyledProps) =>
-    setModalFormBoxShadow(formType)};
-  margin: ${({ formType }: IStyledProps) => setModalFormMargin(formType)};
+  padding: ${({ $formType }) => setModalFormPadding($formType)};
+  background-color: ${({ $formType }) =>
+    setModalFormBackgroundColor($formType)};
+  border-radius: ${({ $formType }) => setModalFormBorderRadius($formType)};
+  box-shadow: ${({ $formType }) => setModalFormBoxShadow($formType)};
+  margin: ${({ $formType }) => setModalFormMargin($formType)};
 `;
