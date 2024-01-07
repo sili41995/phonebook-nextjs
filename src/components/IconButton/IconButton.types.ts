@@ -1,6 +1,5 @@
 import { MouseEvent, ReactNode } from 'react';
 import { BtnType, IconBtnType, Positions } from '@/constants';
-import { DefaultTheme } from 'styled-components/dist/types';
 
 export interface IProps {
   icon: ReactNode;
@@ -25,5 +24,4 @@ export interface IStyledProps {
   height?: number;
   $inputWrap?: boolean;
   $btnType: IconBtnType;
-  theme: DefaultTheme;
 }
